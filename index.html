@@ -199,18 +199,40 @@
   .prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 40px; }
 
   /* atleta */
-  .athlete { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: stretch; }
+  .athlete { display: grid; grid-template-columns: 320px 1fr; gap: 30px; align-items: stretch; }
   .athlete-max { background: var(--gradient-gold); color: var(--navy-950); border-radius: var(--radius-lg); padding: 34px; position: relative; overflow: hidden; display: flex; flex-direction: column; justify-content: center; }
   .athlete-max::after { content: ""; position: absolute; right: -60px; bottom: -60px; width: 230px; height: 230px; border-radius: 50%; border: 34px solid rgba(255, 255, 255, .25); }
   .athlete-max small { font-size: 12px; letter-spacing: .18em; font-weight: 900; text-transform: uppercase; }
   .athlete-max .huge { font-family: var(--font-display); font-weight: 900; font-size: clamp(90px, 14vw, 150px); line-height: .85; letter-spacing: -.04em; margin: 10px 0; }
   .athlete-max .huge span { font-size: .4em; }
   .athlete-max p { font-weight: 700; font-size: 15px; max-width: 320px; position: relative; z-index: 1; }
-  .tiers { display: grid; gap: 12px; }
-  .tier { display: grid; grid-template-columns: 120px 1fr; gap: 18px; align-items: center; padding: 22px; }
-  .tier .pct { font-family: var(--font-display); font-weight: 900; font-size: 36px; color: var(--gold); line-height: 1; }
-  .tier b { font-family: var(--font-display); font-weight: 900; font-size: 19px; display: block; }
-  .tier p { font-size: 14px; color: #c4d0ea; }
+
+
+  .athlete-cta { margin-top: 22px; align-self: flex-start; position: relative; z-index: 1; }
+  .tier-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+  .tier-card { padding: 22px 18px; }
+  .tier-card.elite { border: 1.5px solid var(--gold); box-shadow: 0 0 0 4px rgba(242, 176, 30, .12); }
+  .tier-kicker { font-size: 10px; letter-spacing: .16em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+  .tier-pct { font-family: var(--font-display); font-weight: 900; font-size: 40px; color: var(--gold); line-height: 1; margin: 8px 0 4px; }
+  .tier-card b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 17px; margin-bottom: 12px; }
+  .tier-card ul { list-style: none; display: grid; gap: 9px; border-top: 1px solid rgba(255, 255, 255, .12); padding-top: 12px; }
+  .tier-card li { font-size: 14px; line-height: 1.4; color: #d3dcf0; padding-left: 20px; position: relative; }
+  .tier-card li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
+  .athlete-apply { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 40px; }
+  .gen-req, .prep { background: var(--white); color: var(--ink); border-radius: var(--radius); padding: 24px; }
+  .gen-title { display: flex; align-items: center; gap: 10px; font-family: var(--font-display); font-weight: 900; font-size: 17px; color: var(--navy-900); margin-bottom: 14px; }
+  .gen-title .icon { color: var(--gold-600); font-size: 22px; }
+  .gen-req ol { list-style: none; counter-reset: req; display: grid; gap: 10px; }
+  .gen-req li { counter-increment: req; display: flex; gap: 12px; align-items: center; font-size: 15px; font-weight: 700; }
+  .gen-req li::before { content: counter(req, decimal-leading-zero); font-family: var(--font-display); font-weight: 900; font-size: 12px; color: var(--navy-950); background: var(--gold); border-radius: 8px; padding: 4px 7px; }
+  .prep .check-list li { font-size: 14.5px; }
+  .prep .check-list b { color: var(--navy-900); }
+  .apply-banner { margin-top: 16px; display: flex; align-items: center; gap: 24px; padding: 22px 26px; border-radius: var(--radius-lg); background: rgba(255, 255, 255, .07); border: 1.5px solid var(--gold); }
+  .apply-banner .qr { width: 120px; padding: 8px; flex-shrink: 0; }
+  .apply-text small { font-size: 11px; letter-spacing: .18em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+  .apply-text b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 22px; margin: 4px 0 6px; }
+  .apply-text p { font-size: 14px; color: #c4d0ea; line-height: 1.5; }
+  .apply-banner .btn { margin-left: auto; flex-shrink: 0; }
 
   /* farda */
   .uniform { display: grid; grid-template-columns: .8fr 1.2fr; gap: 30px; align-items: stretch; }
@@ -259,7 +281,8 @@
     .diff.wide { grid-column: span 2; }
     .eco { grid-template-columns: 1fr; }
     .eco-step:not(:last-child)::after { right: auto; left: 40px; top: auto; bottom: -11px; transform: rotate(135deg); }
-    .irium, .system, .campus, .sim, .athlete, .uniform, .final-grid, .books-row, .hero-grid { grid-template-columns: 1fr; }
+    .irium, .system, .campus, .sim, .athlete, .uniform, .final-grid, .books-row, .hero-grid, .athlete-apply { grid-template-columns: 1fr; }
+    .tier-cards { grid-template-columns: repeat(3, 1fr); }
     .system-shots .browser + .browser { position: static; width: 100%; margin-top: 14px; }
     .audiences { margin-top: 30px; }
     .hero-card { display: none; }
@@ -276,6 +299,9 @@
     .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 160px 160px; }
     .gallery figure:first-child { grid-column: span 2; grid-row: auto; }
     .uniform-list { grid-template-columns: 1fr; }
+    .tier-cards { grid-template-columns: 1fr; }
+    .apply-banner { flex-direction: column; align-items: flex-start; }
+    .apply-banner .btn { margin-left: 0; }
     .features, .amenities { grid-template-columns: 1fr 1fr; }
     .books-fan .book { width: 112px; height: 160px; padding: 12px 10px 12px 18px; }
     .books-fan .book .brand { font-size: 16px; }
@@ -287,7 +313,7 @@
     .hero-stats, .steps, .prices, .audiences, .values3, .features, .amenities, .mascots { grid-template-columns: 1fr 1fr; }
     .prices, .audiences, .values3 { grid-template-columns: 1fr; }
     .seg-options { grid-template-columns: 1fr; }
-    .tier { grid-template-columns: 1fr; gap: 6px; }
+    .apply-banner .btn { width: 100%; }
     .book-price { flex-direction: column; align-items: flex-start; }
     .book-price .inst { text-align: left; }
     .hero-ctas .btn { width: 100%; }
@@ -333,7 +359,7 @@
         <dl>
           <div><dt>Nova sede · Zona Norte</dt><dd>PE-095, 562 · Luiz Gonzaga</dd></div>
           <div><dt>Mensalidades 2027</dt><dd>Bolsas de até <strong>40%</strong></dd></div>
-          <div><dt>Programa Bolsa Atleta</dt><dd>Bolsas de até <strong>80%</strong></dd></div>
+          <div><dt>Programa Bolsa Atleta</dt><dd>Bolsas de até <strong>80%</strong></dd><dd><a data-athletes href="#" style="color:var(--gold);font-size:13px">Inscrever atleta →</a></dd></div>
         </dl>
       </aside>
     </div>
@@ -571,15 +597,50 @@
     <div class="sec-head reveal">
       <p class="eyebrow">Programa Bolsa Atleta</p>
       <h2 class="title">Talento no esporte. <em>Compromisso na escola.</em></h2>
-      <p class="lead">Para alunos atletas que unem desempenho esportivo, rendimento escolar e postura exemplar.</p>
+      <p class="lead">Três categorias com a mesma exigência: desempenho esportivo, rendimento escolar e postura exemplar. A comissão avaliadora define a categoria e o percentual — o candidato não escolhe a faixa.</p>
     </div>
     <div class="athlete">
-      <div class="athlete-max reveal"><small>Bolsas de até</small><p class="huge">80<span>%</span></p><p>Percentual definido pela comissão avaliadora conforme a categoria do atleta.</p></div>
-      <div class="tiers">
-        <div class="card-dark tier reveal"><p class="pct">80%</p><div><b>Atleta Elite</b><p>Destaque esportivo de alto rendimento, com bom desempenho escolar e conduta exemplar.</p></div></div>
-        <div class="card-dark tier reveal"><p class="pct">60%</p><div><b>Atleta Performance</b><p>Resultados consistentes em competições e compromisso com os estudos.</p></div></div>
-        <div class="card-dark tier reveal"><p class="pct">até 50%</p><div><b>Atleta em Desenvolvimento</b><p>Jovens talentos em evolução, com dedicação ao esporte e à escola.</p></div></div>
+      <div class="athlete-max reveal"><small>Bolsas de até</small><p class="huge">80<span>%</span></p><p>Pré-candidatura online, preenchida pelo responsável legal. Vagas limitadas.</p>
+        <a class="btn btn-navy athlete-cta" data-athletes href="#"><svg class="icon"><use href="#i-trophy"/></svg>Fazer pré-candidatura</a></div>
+      <div class="tier-cards">
+        <article class="card-dark tier-card elite reveal"><span class="tier-kicker">Alto rendimento</span><p class="tier-pct">80%</p><b>Bolsa Atleta Elite</b>
+          <ul><li>Resultados comprovados em competições oficiais</li><li>Destaque estadual ou nacional</li><li>Liderança e postura exemplar</li><li>Dedicação consistente aos treinos</li></ul></article>
+        <article class="card-dark tier-card reveal"><span class="tier-kicker">Performance comprovada</span><p class="tier-pct">60%</p><b>Bolsa Atleta Performance</b>
+          <ul><li>Participação em equipes oficiais</li><li>Resultados municipais e locais</li><li>Postura exemplar</li><li>Bom desempenho escolar</li></ul></article>
+        <article class="card-dark tier-card reveal"><span class="tier-kicker">Potencial em evolução</span><p class="tier-pct">até 50%</p><b>Atleta em Desenvolvimento</b>
+          <ul><li>Dedicação aos treinamentos</li><li>Participação esportiva</li><li>Compromisso com os estudos</li><li>Evolução esportiva acompanhada</li></ul></article>
       </div>
+    </div>
+    <p class="fine-print" style="margin-top:14px">Os critérios orientam a análise, mas não representam aprovação automática. A existência das categorias não obriga o Colégio a conceder bolsas em todas as faixas.</p>
+
+    <div class="athlete-apply">
+      <div class="gen-req reveal">
+        <p class="gen-title"><svg class="icon"><use href="#i-check-square"/></svg>Requisitos gerais — valem para todas as categorias</p>
+        <ol>
+          <li>Matrícula em centro de treinamento</li><li>Frequência escolar adequada</li><li>Cumprimento das atividades acadêmicas</li><li>Disciplina e respeito às normas</li><li>Participação esportiva comprovada</li><li>Representação do Colégio quando solicitado</li><li>Evolução esportiva e bom desempenho escolar</li>
+        </ol>
+      </div>
+      <div class="prep reveal">
+        <p class="gen-title"><svg class="icon"><use href="#i-clipboard"/></svg>Tenha em mãos para a inscrição</p>
+        <ul class="check-list">
+          <li><span><b>Aluno:</b> nome completo, data de nascimento e série atual</span></li>
+          <li><span><b>Responsável:</b> nome, vínculo com o aluno e WhatsApp</span></li>
+          <li><span><b>Esporte:</b> modalidade, clube/equipe, treinador, desde quando treina e frequência semanal</span></li>
+          <li><span><b>Centro de treinamento:</b> nome do local onde treina</span></li>
+          <li><span><b>Resultados:</b> competição, ano, categoria e colocação</span></li>
+          <li><span><b>Comprovantes (opcional):</b> súmulas, certificados, declarações — até 5 arquivos de 3 MB</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="apply-banner reveal">
+      <div class="qr"><img src="assets/img/qr-atletas.svg" alt="QR Code para a inscrição no Programa Bolsa Atleta"></div>
+      <div class="apply-text">
+        <small>Inscrições abertas</small>
+        <b>Faça a pré-candidatura em atletas.cppem.com.br</b>
+        <p>Ao final, você recebe um protocolo. A comissão analisa e a equipe entra em contato pelo WhatsApp ou e-mail do responsável. A inscrição não garante a bolsa.</p>
+      </div>
+      <a class="btn btn-gold" data-athletes href="#"><svg class="icon"><use href="#i-arrow"/></svg>Inscrever atleta</a>
     </div>
   </div>
 </section>
@@ -663,7 +724,7 @@
     <p><b style="color:#fff">Colégio CPPEM</b> · Rodovia PE-095, 562 · Luiz Gonzaga · Caruaru-PE · (81) 99707-6388</p>
     <ul>
       <li>Mensalidades e bolsas conforme campanha de matrículas 2027. Bolsas sujeitas à análise, critérios institucionais e disponibilidade de vagas.</li>
-      <li>O percentual da Bolsa Atleta é definido pela comissão avaliadora. Farda vendida por peça; itens sem preço informado são sob consulta.</li>
+      <li>Bolsa Atleta: inscrições em atletas.cppem.com.br; categoria e percentual definidos pela comissão avaliadora. Farda vendida por peça; itens sem preço informado são sob consulta.</li>
       <li>Pré-projeto da nova sede e livros IRIUM em representação ilustrativa. Telas da plataforma IRIUM e do sistema escolar são prints reais.</li>
     </ul>
   </div>
@@ -674,6 +735,7 @@
 <script>
   const WHATSAPP_NUMBER = "5581997076388";
   const WHATSAPP_MESSAGE = "Olá! Vi a página de Matrículas 2027 do CPPEM e quero agendar uma visita.";
+  const ATHLETES_APPLICATION_URL = "https://atletas.cppem.com.br/#inscricao";
   const SCHOLARSHIP_OPTIONS = [0, 20, 30, 40];
   const MONTHS_PER_YEAR = 12;
   const SEGMENTS = [
@@ -687,6 +749,12 @@
 
   document.querySelectorAll("[data-whatsapp]").forEach((link) => {
     link.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`;
+    link.target = "_blank";
+    link.rel = "noopener";
+  });
+
+  document.querySelectorAll("[data-athletes]").forEach((link) => {
+    link.href = ATHLETES_APPLICATION_URL;
     link.target = "_blank";
     link.rel = "noopener";
   });

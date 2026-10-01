@@ -267,7 +267,7 @@
   .cta-strip .btn { margin-left: auto; background: var(--gradient-gold); color: var(--navy-950); padding: 12px 18px; border-radius: 14px; font-family: var(--font-display); font-weight: 900; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
 
   /* ---------- 14 bolsa atleta ---------- */
-  .athlete-hero { margin-top: 20px; height: 270px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; position: relative; z-index: 2; }
+  .athlete-hero { margin-top: 20px; height: 280px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; position: relative; z-index: 2; }
   .athlete-max { background: var(--gradient-gold); color: var(--navy-950); border-radius: 26px; padding: 24px; position: relative; overflow: hidden; }
   .athlete-max::after { content: ""; position: absolute; right: -50px; bottom: -50px; width: 190px; height: 190px; border-radius: 50%; border: 28px solid rgba(255, 255, 255, 0.25); }
   .athlete-max small { font-size: 10px; letter-spacing: 0.18em; font-weight: 900; text-transform: uppercase; }
@@ -287,6 +287,38 @@
   .criteria .icon { font-size: 22px; color: var(--gold); }
   .criteria b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 14px; margin: 8px 0 3px; }
   .criteria p { font-size: 11px; color: #c4d0ea; line-height: 1.4; }
+
+
+  /* ---------- 14/15 bolsa atleta: categorias e inscrição ---------- */
+  .tier-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 18px; position: relative; z-index: 2; }
+  .tier-card { padding: 22px 18px; border-radius: var(--radius); background: linear-gradient(160deg, rgba(22, 64, 154, 0.55), rgba(10, 31, 77, 0.85) 60%); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .tier-card.elite { border: 1.5px solid var(--gold); box-shadow: 0 0 0 4px rgba(242, 176, 30, 0.12); }
+  .tier-kicker { font-size: 9px; letter-spacing: 0.16em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+  .tier-pct { font-family: var(--font-display); font-weight: 900; font-size: 36px; color: var(--gold); line-height: 1; margin: 8px 0 4px; }
+  .tier-card b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 15px; margin-bottom: 10px; }
+  .tier-card ul { list-style: none; display: grid; gap: 9px; border-top: 1px solid rgba(255, 255, 255, 0.12); padding-top: 10px; }
+  .tier-card li { font-size: 12.5px; line-height: 1.35; color: #d3dcf0; padding-left: 16px; position: relative; }
+  .tier-card li::before { content: "✓"; position: absolute; left: 0; color: var(--gold); font-weight: 900; }
+  .gen-title { display: flex; align-items: center; gap: 8px; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--navy-900); margin-bottom: 10px; }
+  .gen-title .icon { color: var(--gold-600); font-size: 18px; }
+  .gen-req { margin-top: 22px; padding: 20px 20px; position: relative; z-index: 2; }
+  .gen-req ol { list-style: none; counter-reset: req; display: grid; grid-template-columns: 1fr 1fr; gap: 10px 18px; }
+  .gen-req li { counter-increment: req; display: flex; gap: 10px; align-items: center; font-size: 12.5px; font-weight: 700; color: var(--ink); }
+  .gen-req li::before { content: counter(req, decimal-leading-zero); font-family: var(--font-display); font-weight: 900; font-size: 11px; color: var(--navy-950); background: var(--gold); border-radius: 7px; padding: 3px 6px; }
+  .apply-grid { display: grid; grid-template-columns: 1fr 200px; gap: 14px; margin-top: 14px; position: relative; z-index: 2; }
+  .prep { padding: 20px 20px; }
+  .prep .check-list { gap: 11px; }
+  .prep .check-list li { font-size: 12px; }
+  .prep .check-list b { color: var(--navy-900); }
+  .apply-qr { background: var(--navy-900); color: var(--white); border-radius: var(--radius); padding: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px; border: 2px solid var(--gold); }
+  .apply-qr .qr { width: 150px; padding: 10px; }
+  .apply-qr b { font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--gold); }
+  .apply-qr span { font-size: 11px; color: #c4d0ea; }
+  .rules { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 14px; position: relative; z-index: 2; }
+  .rules div { background: var(--white); border: 1px solid var(--line); border-radius: 16px; padding: 18px 16px; box-shadow: var(--shadow-card); }
+  .rules .icon { font-size: 20px; color: var(--blue-500); }
+  .rules b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 13.5px; color: var(--navy-900); margin: 6px 0 3px; }
+  .rules p { font-size: 11px; color: var(--muted); line-height: 1.4; }
 
   /* ---------- 15 farda ---------- */
   .uniform { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 16px; margin-top: 18px; position: relative; z-index: 2; }
@@ -789,7 +821,7 @@
   <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>13</b></footer>
 </section>
 
-<!-- ============ 14 · BOLSA ATLETA ============ -->
+<!-- ============ 14 · BOLSA ATLETA: CATEGORIAS ============ -->
 <section class="page dark on-dark">
   <div class="orb gold" style="width:460px;height:460px;right:-200px;top:-140px"></div>
   <header class="page-head">
@@ -799,26 +831,69 @@
   <div class="h-block">
     <p class="eyebrow">Programa Bolsa Atleta</p>
     <h2 class="title">Talento no esporte.<br><em>Compromisso na escola.</em></h2>
-    <p class="lead">Um programa para alunos atletas que unem desempenho esportivo, rendimento escolar e postura exemplar.</p>
+    <p class="lead">Três categorias com a mesma exigência: desempenho esportivo, rendimento escolar e postura exemplar. A comissão avaliadora define a categoria e o percentual — o candidato não escolhe a faixa.</p>
   </div>
   <div class="athlete-hero">
-    <div class="athlete-max"><small>Bolsas de até</small><p class="huge">80<span>%</span></p><p>Percentual definido pela comissão avaliadora conforme a categoria do atleta.</p></div>
+    <div class="athlete-max"><small>Bolsas de até</small><p class="huge">80<span>%</span></p><p>Inscrições pelo site atletas.cppem.com.br. Vagas limitadas.</p></div>
     <div class="athlete-photo"><img src="assets/img/turma-campo.jpg" alt="Alunos do CPPEM reunidos em campo"></div>
   </div>
-  <div class="tiers">
-    <div class="card-dark tier"><p class="pct">80%<small>de bolsa</small></p><div><b>Atleta Elite</b><p>Destaque esportivo de alto rendimento, aliado a bom desempenho escolar e conduta exemplar.</p></div></div>
-    <div class="card-dark tier"><p class="pct">60%<small>de bolsa</small></p><div><b>Atleta Performance</b><p>Atleta com resultados consistentes em competições e compromisso com os estudos.</p></div></div>
-    <div class="card-dark tier"><p class="pct">até 50%<small>de bolsa</small></p><div><b>Atleta em Desenvolvimento</b><p>Jovens talentos em evolução, com dedicação ao esporte e à escola.</p></div></div>
+  <div class="tier-cards">
+    <div class="tier-card elite"><span class="tier-kicker">Alto rendimento</span><p class="tier-pct">80%</p><b>Bolsa Atleta Elite</b>
+      <ul><li>Resultados comprovados em competições oficiais</li><li>Destaque estadual ou nacional</li><li>Liderança e postura exemplar</li><li>Dedicação consistente aos treinos</li></ul></div>
+    <div class="tier-card"><span class="tier-kicker">Performance comprovada</span><p class="tier-pct">60%</p><b>Bolsa Atleta Performance</b>
+      <ul><li>Participação em equipes oficiais</li><li>Resultados municipais e locais</li><li>Postura exemplar</li><li>Bom desempenho escolar</li></ul></div>
+    <div class="tier-card"><span class="tier-kicker">Potencial em evolução</span><p class="tier-pct">até 50%</p><b>Atleta em Desenvolvimento</b>
+      <ul><li>Dedicação aos treinamentos</li><li>Participação esportiva</li><li>Compromisso com os estudos</li><li>Evolução esportiva acompanhada</li></ul></div>
   </div>
-  <div class="criteria">
-    <div><svg class="icon"><use href="#i-trophy"/></svg><b>Desempenho esportivo</b><p>Resultados e potencial na modalidade.</p></div>
-    <div><svg class="icon"><use href="#i-chart"/></svg><b>Rendimento escolar</b><p>Compromisso acadêmico ao longo do ano.</p></div>
-    <div><svg class="icon"><use href="#i-shield"/></svg><b>Postura exemplar</b><p>Disciplina, respeito e espírito de equipe.</p></div>
-  </div>
+  <p class="fine-print" style="margin-top:12px;position:relative;z-index:2">Os critérios orientam a análise, mas não representam aprovação automática. A existência das categorias não obriga o Colégio a conceder bolsas em todas as faixas.</p>
   <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Percentual definido pela comissão avaliadora</span><b>14</b></footer>
 </section>
 
-<!-- ============ 15 · FARDA ============ -->
+<!-- ============ 15 · BOLSA ATLETA: INSCRIÇÃO ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">10 · Bolsa Atleta</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Como se candidatar</p>
+    <h2 class="title">Requisitos e<br><em>pré-candidatura.</em></h2>
+    <p class="lead">A pré-candidatura é feita online pelo responsável legal, em poucos minutos. Alunos atuais do CPPEM e novos candidatos podem se inscrever.</p>
+  </div>
+  <div class="gen-req card">
+    <p class="gen-title"><svg class="icon"><use href="#i-check-square"/></svg>Requisitos gerais — valem para todas as categorias</p>
+    <ol>
+      <li>Matrícula em centro de treinamento</li><li>Frequência escolar adequada</li><li>Cumprimento das atividades acadêmicas</li><li>Disciplina e respeito às normas</li><li>Participação esportiva comprovada</li><li>Representação do Colégio quando solicitado</li><li>Evolução esportiva e bom desempenho escolar</li>
+    </ol>
+  </div>
+  <div class="apply-grid">
+    <div class="card prep">
+      <p class="gen-title"><svg class="icon"><use href="#i-clipboard"/></svg>Tenha em mãos</p>
+      <ul class="check-list">
+        <li><span><b>Aluno:</b> nome completo, data de nascimento e série atual</span></li>
+        <li><span><b>Responsável:</b> nome, vínculo com o aluno e WhatsApp</span></li>
+        <li><span><b>Esporte:</b> modalidade, clube/equipe, treinador, desde quando treina e frequência semanal</span></li>
+        <li><span><b>Centro de treinamento:</b> nome do local onde treina</span></li>
+        <li><span><b>Resultados:</b> competição, ano, categoria e colocação</span></li>
+        <li><span><b>Comprovantes (opcional):</b> súmulas, certificados, declarações — até 5 arquivos de 3 MB (PDF, JPG, PNG ou WebP)</span></li>
+      </ul>
+    </div>
+    <div class="apply-qr">
+      <div class="qr"><img src="assets/img/qr-atletas.svg" alt="QR Code para a inscrição no Programa Bolsa Atleta"></div>
+      <b>atletas.cppem.com.br</b>
+      <span>Escaneie e faça a pré-candidatura</span>
+    </div>
+  </div>
+  <div class="rules">
+    <div><svg class="icon"><use href="#i-file"/></svg><b>Protocolo</b><p>Ao final do envio, a pré-candidatura gera um protocolo.</p></div>
+    <div><svg class="icon"><use href="#i-users"/></svg><b>Comissão avaliadora</b><p>Analisa documentos, desempenho, postura e vagas e define categoria e percentual.</p></div>
+    <div><svg class="icon"><use href="#i-chat"/></svg><b>Resultado</b><p>A equipe entra em contato pelo WhatsApp ou e-mail do responsável.</p></div>
+  </div>
+  <p class="fine-print" style="margin-top:12px;position:relative;z-index:2">A inscrição não garante a bolsa. Comprovantes não são obrigatórios no envio, mas ajudam a comissão e podem ser solicitados durante a análise.</p>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Concessão sujeita à análise e disponibilidade</span><b>15</b></footer>
+</section>
+
+<!-- ============ 16 · FARDA ============ -->
 <section class="page">
   <header class="page-head">
     <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
@@ -855,10 +930,10 @@
     <div class="card"><svg class="icon"><use href="#i-users"/></svg><b>Igualdade</b><p>Todos com a mesma farda, sem distinções.</p></div>
     <div class="card"><svg class="icon"><use href="#i-heart"/></svg><b>Pertencimento</b><p>Orgulho de representar o CPPEM.</p></div>
   </div>
-  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Valores sujeitos à disponibilidade de tamanhos</span><b>15</b></footer>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Valores sujeitos à disponibilidade de tamanhos</span><b>16</b></footer>
 </section>
 
-<!-- ============ 16 · RESUMO + PASSOS ============ -->
+<!-- ============ 17 · RESUMO + PASSOS ============ -->
 <section class="page">
   <header class="page-head">
     <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
@@ -879,7 +954,7 @@
       </tbody>
     </table>
   </div>
-  <p class="fine-print" style="margin-top:10px;position:relative;z-index:2">* Livros do 9º ano conforme tabela do segmento correspondente — confirme com a secretaria. Farda vendida por peça (página 15).</p>
+  <p class="fine-print" style="margin-top:10px;position:relative;z-index:2">* Livros do 9º ano conforme tabela do segmento correspondente — confirme com a secretaria. Farda vendida por peça (página 16).</p>
   <div class="h-block" style="margin-top:24px">
     <p class="eyebrow">Próximos passos</p>
     <h2 class="title" style="font-size:30px">Como garantir a vaga</h2>
@@ -897,10 +972,10 @@
     <span class="btn">(81) 99707-6388</span>
   </div>
   <div class="invest-photo" style="margin-top:16px;height:130px"><img src="assets/img/turma-campo.jpg" alt="Alunos do CPPEM reunidos" style="object-position:center 55%"><p><span>Fé, disciplina, estabilidade e liberdade:<br><em>uma formação para toda a vida.</em></span></p></div>
-  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>16</b></footer>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>17</b></footer>
 </section>
 
-<!-- ============ 17 · CONTRACAPA ============ -->
+<!-- ============ 18 · CONTRACAPA ============ -->
 <section class="page dark on-dark back">
   <div class="back-photo"></div>
   <div class="back-shade"></div>
