@@ -1,0 +1,943 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Guia da Família CPPEM 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Nunito:wght@600;700;800;900&family=Nunito+Sans:opsz,wght@6..12,400;6..12,600;6..12,700;6..12,800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/brand.css">
+<style>
+  @page { size: A4; margin: 0; }
+  body { background: #c9cfdb; }
+  .page {
+    width: 210mm; height: 297mm; position: relative; overflow: hidden;
+    margin: 0 auto 12mm; background: var(--cream);
+    padding: 15mm 15mm 0; display: flex; flex-direction: column;
+    break-after: page;
+  }
+  @media print { body { background: none; } .page { margin: 0; } }
+  .page.dark { background: var(--gradient-night); color: var(--white); }
+  .page.white { background: var(--white); }
+
+  .page-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 9mm; position: relative; z-index: 2; }
+  .brandmark { display: flex; align-items: center; gap: 10px; }
+  .brandmark .crest { width: 38px; height: 38px; border-width: 1.5px; box-shadow: none; }
+  .brandmark b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 12px; letter-spacing: 0.14em; color: var(--navy-900); }
+  .brandmark small { display: block; font-size: 8.5px; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); font-weight: 700; }
+  .dark .brandmark b { color: var(--white); }
+  .dark .brandmark small { color: #9fb0d6; }
+  .section-no { font-family: var(--font-serif); font-size: 11px; font-weight: 700; letter-spacing: 0.2em; color: var(--gold-600); }
+  .dark .section-no { color: var(--gold); }
+
+  .page-foot {
+    margin-top: auto; padding: 5mm 0 7mm; display: flex; justify-content: space-between; align-items: center;
+    font-size: 9px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted);
+    border-top: 1px solid var(--line); position: relative; z-index: 2;
+  }
+  .dark .page-foot { color: #8d9cc0; border-top-color: rgba(255, 255, 255, 0.1); }
+  .page-foot b { color: var(--navy-900); font-family: var(--font-display); font-size: 11px; }
+  .dark .page-foot b { color: var(--gold); }
+
+  .h-block { position: relative; z-index: 2; }
+  .h-block .title { font-size: 40px; margin: 8px 0 12px; }
+  .h-block .lead { max-width: 520px; }
+
+  /* ---------- 01 capa ---------- */
+  .cover { padding: 0; background: var(--navy-950); color: var(--white); }
+  .cover-photo { position: absolute; inset: 0; background: url("assets/img/formatura.jpg") center 30% / cover; }
+  .cover-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 15, 44, 0.55) 0%, rgba(5, 15, 44, 0.25) 28%, rgba(5, 15, 44, 0.86) 58%, #050f2c 78%); }
+  .cover .orb.blue { width: 520px; height: 520px; left: -200px; top: 420px; }
+  .cover .orb.gold { width: 380px; height: 380px; right: -140px; top: -120px; }
+  .cover-top { position: relative; z-index: 2; display: flex; justify-content: space-between; align-items: flex-start; padding: 15mm 15mm 0; }
+  .cover-top .crest { width: 112px; height: 112px; }
+  .cover-body { position: relative; z-index: 2; margin-top: auto; padding: 0 15mm; }
+  .cover-body .title { font-size: 60px; color: var(--white); margin: 18px 0 16px; }
+  .cover-body .title em { color: var(--gold); display: block; }
+  .cover-body .lead { color: #d3dcf0; font-size: 16px; max-width: 470px; }
+  .cover-band { position: relative; z-index: 2; margin: 12mm 15mm 13mm; display: grid; grid-template-columns: 1.35fr 1fr 1fr; border-radius: 22px; overflow: hidden; border: 1px solid rgba(255, 255, 255, 0.14); background: rgba(10, 31, 77, 0.7); backdrop-filter: blur(8px); }
+  .cover-band div { padding: 16px 18px; border-left: 1px solid rgba(255, 255, 255, 0.1); }
+  .cover-band div:first-child { border-left: 0; }
+  .cover-band small { display: block; font-size: 8.5px; letter-spacing: 0.18em; font-weight: 800; color: var(--gold); text-transform: uppercase; margin-bottom: 5px; }
+  .cover-band b { font-family: var(--font-display); font-size: 14px; font-weight: 800; line-height: 1.25; display: block; }
+  .cover-band b strong { color: var(--gold); font-size: 22px; font-weight: 900; }
+
+  /* ---------- 02 boas-vindas ---------- */
+  .welcome { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 26px; position: relative; z-index: 2; }
+  .welcome .title { font-size: 38px; margin: 8px 0 14px; }
+  .letter p { font-size: 13.5px; line-height: 1.65; color: #3d4c6c; margin-bottom: 10px; }
+  .letter .sign { font-family: var(--font-serif); font-weight: 700; color: var(--navy-900); font-size: 13px; letter-spacing: 0.08em; margin-top: 14px; }
+  .portrait { border-radius: 26px; overflow: hidden; position: relative; box-shadow: var(--shadow-float); border: 4px solid var(--white); aspect-ratio: 0.82; }
+  .portrait img { width: 100%; height: 100%; object-fit: cover; }
+  .portrait .badge { position: absolute; left: 12px; right: 12px; bottom: 12px; background: rgba(5, 15, 44, 0.85); color: var(--white); padding: 10px 14px; border-radius: 14px; font-size: 11px; font-weight: 700; }
+  .portrait .badge b { color: var(--gold); display: block; font-family: var(--font-display); font-size: 13px; }
+  .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 26px 0 22px; position: relative; z-index: 2; }
+  .stat { background: var(--navy-900); color: var(--white); border-radius: 16px; padding: 14px 14px 13px; position: relative; overflow: hidden; }
+  .stat::after { content: ""; position: absolute; right: -30px; top: -30px; width: 90px; height: 90px; border-radius: 50%; background: radial-gradient(circle, rgba(90, 162, 255, 0.45), transparent 70%); }
+  .stat b { font-family: var(--font-display); font-weight: 900; font-size: 26px; color: var(--gold); display: block; line-height: 1; }
+  .stat span { font-size: 10.5px; font-weight: 700; color: #c4d0ea; display: block; margin-top: 6px; line-height: 1.3; }
+  .toc { position: relative; z-index: 2; }
+  .toc h3 { font-family: var(--font-display); font-weight: 900; font-size: 15px; color: var(--navy-900); margin-bottom: 8px; }
+  .toc ol { list-style: none; display: grid; grid-template-columns: 1fr 1fr; column-gap: 28px; }
+  .toc li { display: flex; align-items: baseline; gap: 8px; font-size: 12.5px; padding: 6px 0; border-bottom: 1px dashed #d6dcea; color: #3d4c6c; font-weight: 600; }
+  .toc li span { margin-left: auto; font-family: var(--font-display); font-weight: 900; color: var(--gold-600); }
+
+  /* ---------- 03 pilares ---------- */
+  .pillars { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 20px; position: relative; z-index: 2; }
+  .pillar { padding: 22px 20px 20px; position: relative; overflow: hidden; }
+  .pillar .top { display: flex; justify-content: space-between; align-items: center; }
+  .pillar .big-no { font-family: var(--font-display); font-weight: 900; font-size: 54px; line-height: 0.8; color: var(--blue-50); }
+  .pillar h3 { font-family: var(--font-display); font-weight: 900; font-size: 22px; color: var(--navy-900); margin: 14px 0 6px; }
+  .pillar > p { font-size: 14px; line-height: 1.5; color: var(--muted); margin-bottom: 14px; }
+  .pillar .practice { border-top: 1px solid var(--line); padding-top: 12px; }
+  .pillar .practice small { display: block; font-size: 9px; letter-spacing: 0.18em; font-weight: 800; color: var(--gold-600); text-transform: uppercase; margin-bottom: 8px; }
+  .pillar .check-list li { font-size: 13.5px; }
+  .pillar .check-list { gap: 8px; }
+  .motto { margin-top: 16px; background: var(--navy-900); color: var(--white); border-radius: 18px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; position: relative; overflow: hidden; z-index: 2; }
+  .motto .icon { font-size: 30px; color: var(--gold); }
+  .motto p { font-family: var(--font-display); font-size: 16px; font-weight: 800; line-height: 1.35; }
+  .motto p em { font-style: normal; color: var(--gold); }
+
+  /* ---------- 04 disciplina na prática ---------- */
+  .photo-grid { display: grid; grid-template-columns: 1.3fr 1fr; grid-template-rows: 300px 210px; gap: 10px; margin-top: 18px; position: relative; z-index: 2; }
+  .photo-grid figure { border-radius: 20px; overflow: hidden; position: relative; }
+  .photo-grid figure img { width: 100%; height: 100%; object-fit: cover; }
+  .photo-grid figure:first-child { grid-row: span 2; }
+  .photo-grid figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 30px 16px 12px; background: linear-gradient(transparent, rgba(5, 15, 44, 0.9)); color: var(--white); font-size: 11px; font-weight: 700; letter-spacing: 0.04em; }
+  .quote-block { margin-top: 16px; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; position: relative; z-index: 2; }
+  .quote-block div { padding: 16px; border-radius: 16px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .quote-block .icon { font-size: 22px; color: var(--gold); margin-bottom: 8px; }
+  .quote-block b { display: block; font-family: var(--font-display); font-size: 15px; font-weight: 900; margin-bottom: 4px; }
+  .quote-block p { font-size: 12px; line-height: 1.45; color: #c4d0ea; }
+  .big-quote { margin-top: 16px; font-family: var(--font-display); font-weight: 800; font-size: 19px; line-height: 1.35; position: relative; z-index: 2; padding-left: 18px; border-left: 4px solid var(--gold); }
+  .big-quote em { font-style: normal; color: var(--gold); }
+
+  /* ---------- 05 diferenciais ---------- */
+  .diffs { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 24px; position: relative; z-index: 2; }
+  .diff { padding: 21px 18px 20px; display: flex; gap: 14px; }
+  .diff .icon-badge { width: 42px; height: 42px; font-size: 20px; }
+  .diff b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 15px; margin-bottom: 4px; }
+  .diff p { font-size: 12.5px; line-height: 1.45; color: #c4d0ea; }
+  .diff.feature { grid-column: span 2; background: var(--gradient-gold); color: var(--navy-950); border: 0; }
+  .diff.feature p { color: #3a2a05; }
+  .diff.feature .icon-badge { background: var(--navy-950); color: var(--gold); border: 0; }
+
+  /* ---------- 06 nova sede ---------- */
+  .campus-hero { margin: 0 -15mm; height: 370px; position: relative; }
+  .campus-hero img { width: 100%; height: 100%; object-fit: cover; }
+  .campus-hero .label { position: absolute; left: 15mm; bottom: 14px; background: rgba(5, 15, 44, 0.85); color: var(--white); padding: 8px 14px; border-radius: 999px; font-size: 9.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; }
+  .campus-hero .area { position: absolute; right: 15mm; bottom: -34px; background: var(--navy-900); color: var(--white); border-radius: 20px; padding: 16px 22px; box-shadow: var(--shadow-float); border: 2px solid var(--gold); text-align: center; }
+  .campus-hero .area b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 34px; color: var(--gold); line-height: 1; }
+  .campus-hero .area span { font-size: 10px; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+  .campus-body { padding-top: 22px; position: relative; z-index: 2; }
+  .campus-body .title { font-size: 36px; margin: 8px 0 10px; max-width: 420px; }
+  .amenities { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 22px 0 18px; }
+  .amenity { display: flex; align-items: center; gap: 10px; padding: 15px 14px; }
+  .amenity .icon-badge { width: 36px; height: 36px; font-size: 17px; border-radius: 11px; }
+  .amenity b { font-family: var(--font-display); font-weight: 800; font-size: 13px; color: var(--navy-900); }
+  .address { display: grid; grid-template-columns: 1fr 230px; gap: 12px; min-height: 100px; }
+  .address .card-dark { background: var(--navy-900); padding: 16px 18px; display: flex; gap: 14px; align-items: center; }
+  .address .card-dark .icon { font-size: 30px; color: var(--gold); }
+  .address small { display: block; font-size: 9px; letter-spacing: 0.18em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+  .address b { display: block; font-family: var(--font-display); font-size: 15px; font-weight: 900; margin: 2px 0; }
+  .address span { font-size: 11px; color: #c4d0ea; }
+  .address .facade { border-radius: var(--radius); overflow: hidden; }
+  .address .facade img { width: 100%; height: 100%; object-fit: cover; }
+
+  /* ---------- 07 ecossistema ---------- */
+  .eco { margin-top: 26px; position: relative; z-index: 2; display: grid; gap: 0; }
+  .eco-step { display: grid; grid-template-columns: 54px 1fr 170px; gap: 16px; align-items: center; padding: 19px 18px; border-radius: 18px; background: rgba(255, 255, 255, 0.05); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .eco-step .icon-badge { width: 54px; height: 54px; font-size: 26px; border-radius: 16px; }
+  .eco-step small { font-size: 9px; letter-spacing: 0.18em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+  .eco-step b { display: block; font-family: var(--font-display); font-size: 18px; font-weight: 900; margin: 2px 0 3px; }
+  .eco-step p { font-size: 12px; color: #c4d0ea; line-height: 1.45; }
+  .eco-step .chips { display: flex; flex-wrap: wrap; gap: 5px; justify-content: flex-end; }
+  .chip { font-size: 9.5px; font-weight: 800; padding: 4px 9px; border-radius: 999px; background: rgba(90, 162, 255, 0.16); color: #cfe2ff; border: 1px solid rgba(90, 162, 255, 0.3); }
+  .eco-link { height: 28px; margin-left: 42px; border-left: 2px dashed rgba(242, 176, 30, 0.6); position: relative; }
+  .eco-link::after { content: ""; position: absolute; left: -6px; bottom: -2px; border: 5px solid transparent; border-top: 7px solid var(--gold); }
+  .eco-step.family { background: var(--gradient-gold); color: var(--navy-950); border: 0; }
+  .eco-step.family small { color: var(--navy-800); }
+  .eco-step.family p { color: #3a2a05; }
+  .eco-step.family .icon-badge { background: var(--navy-950); color: var(--gold); }
+  .eco-step.family .chip { background: rgba(5, 15, 44, 0.1); color: var(--navy-950); border-color: rgba(5, 15, 44, 0.2); }
+
+  /* ---------- 08 livros ---------- */
+  .books-stage { margin-top: 18px; border-radius: 26px; background: var(--gradient-night); height: 360px; position: relative; overflow: hidden; display: flex; align-items: center; justify-content: center; z-index: 2; }
+  .books-stage .orb.blue { width: 420px; height: 420px; left: 50%; top: 50%; transform: translate(-50%, -50%); }
+  .books-fan { position: relative; width: 560px; height: 240px; margin-top: 10px; }
+  .books-fan .book { position: absolute; top: 12px; }
+  .books-fan .book:nth-child(1) { left: 0; transform: rotate(-7deg); }
+  .books-fan .book:nth-child(2) { left: 200px; top: 0; transform: scale(1.06); z-index: 2; }
+  .books-fan .book:nth-child(3) { left: 400px; transform: rotate(7deg); }
+  .books-stage .illus { position: absolute; right: 16px; bottom: 12px; font-size: 9px; color: #8d9cc0; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700; }
+  .books-stage .floating { position: absolute; background: var(--white); color: var(--navy-900); border-radius: 14px; padding: 9px 12px; font-size: 11px; font-weight: 800; display: flex; gap: 8px; align-items: center; box-shadow: var(--shadow-float); }
+  .books-stage .floating .icon { color: var(--gold-600); font-size: 16px; }
+  .books-includes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin: 16px 0; position: relative; z-index: 2; }
+  .books-includes .card { padding: 16px 13px; }
+  .books-includes .icon { font-size: 22px; color: var(--blue-500); }
+  .books-includes b { display: block; font-family: var(--font-display); font-size: 13.5px; font-weight: 900; color: var(--navy-900); margin: 8px 0 3px; }
+  .books-includes p { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .book-prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; position: relative; z-index: 2; }
+  .book-price { padding: 18px 18px 16px; position: relative; overflow: hidden; }
+  .book-price small { font-size: 9.5px; font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold-600); }
+  .book-price .cash { font-family: var(--font-display); font-weight: 900; font-size: 28px; color: var(--navy-900); margin: 6px 0 0; line-height: 1; }
+  .book-price .cash sup { font-size: 13px; vertical-align: top; margin-right: 3px; }
+  .book-price .cond { font-size: 10.5px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: 0.1em; }
+  .book-price .inst { margin-top: 12px; padding: 9px 11px; border-radius: 11px; background: var(--blue-50); font-size: 12px; color: var(--navy-800); font-weight: 700; }
+  .book-price .inst b { font-family: var(--font-display); font-size: 15px; font-weight: 900; color: var(--navy-900); }
+  .book-price.mid { background: var(--navy-900); border-color: var(--navy-900); }
+  .book-price.mid .cash { color: var(--white); }
+  .book-price.mid .cond { color: #9fb0d6; }
+  .book-price.mid small { color: var(--gold); }
+  .book-price.mid .inst { background: rgba(255, 255, 255, 0.08); color: #c4d0ea; }
+  .book-price.mid .inst b { color: var(--gold); }
+
+  /* ---------- 09/10 plataforma IRIUM ---------- */
+  .journey { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin: 16px 0 16px; position: relative; z-index: 2; }
+  .journey .card { padding: 14px 14px 13px; position: relative; }
+  .journey .num { position: absolute; right: 12px; top: 10px; font-family: var(--font-display); font-weight: 900; font-size: 30px; color: var(--blue-50); line-height: 1; }
+  .journey .icon-badge { width: 38px; height: 38px; font-size: 18px; border-radius: 12px; }
+  .journey .card:nth-child(1) .icon-badge { background: #f28a1e; color: var(--white); }
+  .journey .card:nth-child(2) .icon-badge { background: #7b1fa2; color: var(--white); }
+  .journey .card:nth-child(3) .icon-badge { background: var(--blue-500); color: var(--white); }
+  .journey b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 15px; color: var(--navy-900); margin: 10px 0 3px; }
+  .journey p { font-size: 11.5px; line-height: 1.45; color: var(--muted); }
+  .shot-main { position: relative; z-index: 2; }
+  .shot-main .browser img { height: 470px; object-fit: cover; object-position: top; }
+  .callout { position: absolute; background: var(--navy-900); color: var(--white); border-radius: 12px; padding: 8px 12px; font-size: 11px; font-weight: 800; box-shadow: var(--shadow-float); display: flex; gap: 7px; align-items: center; z-index: 3; }
+  .callout .icon { color: var(--gold); font-size: 14px; }
+  .callout.gold { background: var(--gold); color: var(--navy-950); }
+  .callout.gold .icon { color: var(--navy-950); }
+  .shots-stack { display: grid; gap: 14px; margin-top: 16px; position: relative; z-index: 2; }
+  .shot-caption { display: flex; gap: 12px; align-items: flex-start; margin-top: 10px; }
+  .shot-caption .icon-badge { width: 32px; height: 32px; font-size: 15px; border-radius: 10px; }
+  .shot-caption b { display: block; font-family: var(--font-display); font-size: 14px; font-weight: 900; color: var(--navy-900); }
+  .shot-caption p { font-size: 11.5px; color: var(--muted); line-height: 1.4; }
+  .subjects-split { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 14px; align-items: start; }
+  .subject-cloud { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+  .subject-cloud span { font-size: 10.5px; font-weight: 800; padding: 5px 10px; border-radius: 999px; background: var(--white); border: 1px solid var(--line); color: var(--navy-800); }
+
+  /* ---------- 11/12 sistema escolar ---------- */
+  .made-here { display: inline-flex; align-items: center; gap: 8px; background: var(--gold); color: var(--navy-950); padding: 6px 13px; border-radius: 999px; font-size: 10px; font-weight: 900; letter-spacing: 0.12em; text-transform: uppercase; margin-top: 14px; }
+  .system-shot { margin-top: 18px; position: relative; z-index: 2; }
+  .system-shot .browser img { height: 440px; object-fit: cover; object-position: top; }
+  .audiences { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 18px; position: relative; z-index: 2; }
+  .audience { padding: 16px 15px; }
+  .audience .icon-badge { width: 40px; height: 40px; font-size: 19px; }
+  .audience b { display: block; font-family: var(--font-display); font-size: 16px; font-weight: 900; margin: 10px 0 6px; }
+  .audience ul { list-style: none; display: grid; gap: 5px; }
+  .audience li { font-size: 11.5px; color: #c4d0ea; padding-left: 14px; position: relative; line-height: 1.35; }
+  .audience li::before { content: ""; position: absolute; left: 0; top: 6px; width: 6px; height: 6px; border-radius: 50%; background: var(--gold); }
+  .system-split { display: grid; grid-template-columns: 1.08fr 0.92fr; gap: 16px; margin-top: 18px; position: relative; z-index: 2; align-items: start; }
+  .system-split .browser img { height: auto; }
+  .features { display: grid; gap: 8px; }
+  .feature { display: flex; gap: 11px; align-items: center; padding: 10px 12px; }
+  .feature .icon-badge { width: 36px; height: 36px; font-size: 17px; border-radius: 11px; }
+  .feature b { display: block; font-family: var(--font-display); font-size: 13.5px; font-weight: 900; color: var(--navy-900); }
+  .feature p { font-size: 11px; color: var(--muted); line-height: 1.35; }
+  .tech-banner { margin-top: 16px; border-radius: 18px; background: var(--navy-900); color: var(--white); padding: 16px 20px; display: flex; align-items: center; gap: 16px; position: relative; overflow: hidden; z-index: 2; }
+  .tech-banner .icon { font-size: 30px; color: var(--gold); }
+  .tech-banner p { font-family: var(--font-display); font-weight: 800; font-size: 15px; line-height: 1.35; }
+  .tech-banner p em { font-style: normal; color: var(--gold); }
+
+  /* ---------- 13 mensalidades ---------- */
+  .prices { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 20px; position: relative; z-index: 2; }
+  .savings { display: flex; flex-direction: column; padding: 0 18px 18px; font-size: 10.5px; color: var(--muted); font-weight: 700; }
+  .savings b { font-family: var(--font-display); font-size: 15px; font-weight: 900; }
+  .prices .price-row { padding: 12px 11px; }
+  .prices .price-row span { font-size: 10.5px; letter-spacing: 0.04em; }
+  .prices .price-row b { font-size: 15.5px; }
+  .prices .price-row.best b { font-size: 17px; }
+  .prices .price-head { padding: 24px 18px 14px; }
+  .prices .price-normal { padding: 11px 18px; }
+  .invest-photo { margin-top: 14px; height: 118px; border-radius: 20px; overflow: hidden; position: relative; z-index: 2; }
+  .invest-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+  .invest-photo p { position: absolute; inset: 0; display: flex; align-items: center; justify-content: flex-start; padding: 0 26px; background: linear-gradient(90deg, rgba(5, 15, 44, 0.92) 0%, rgba(5, 15, 44, 0.6) 55%, transparent); color: var(--white); font-family: var(--font-display); font-weight: 900; font-size: 20px; line-height: 1.25; }
+  .invest-photo p em { font-style: normal; color: var(--gold); }
+  .savings b { color: #0f9d6b; }
+  .how-it-works { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; position: relative; z-index: 2; }
+  .how-it-works .card { padding: 14px; display: flex; gap: 12px; }
+  .how-it-works b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 13.5px; color: var(--navy-900); margin-bottom: 3px; }
+  .how-it-works p { font-size: 11px; line-height: 1.4; color: var(--muted); }
+  .cta-strip { margin-top: 14px; background: var(--navy-900); border-radius: 20px; padding: 18px 22px; display: flex; align-items: center; gap: 16px; color: var(--white); position: relative; overflow: hidden; z-index: 2; }
+  .cta-strip .check { width: 46px; height: 46px; border-radius: 50%; background: var(--gold); color: var(--navy-950); display: grid; place-items: center; font-size: 24px; flex-shrink: 0; }
+  .cta-strip b { font-family: var(--font-display); font-size: 17px; font-weight: 900; display: block; }
+  .cta-strip span { font-size: 12.5px; color: #c4d0ea; }
+  .cta-strip .btn { margin-left: auto; background: var(--gradient-gold); color: var(--navy-950); padding: 12px 18px; border-radius: 14px; font-family: var(--font-display); font-weight: 900; font-size: 12px; letter-spacing: 0.08em; text-transform: uppercase; white-space: nowrap; }
+
+  /* ---------- 14 bolsa atleta ---------- */
+  .athlete-hero { margin-top: 20px; height: 270px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; position: relative; z-index: 2; }
+  .athlete-max { background: var(--gradient-gold); color: var(--navy-950); border-radius: 26px; padding: 24px; position: relative; overflow: hidden; }
+  .athlete-max::after { content: ""; position: absolute; right: -50px; bottom: -50px; width: 190px; height: 190px; border-radius: 50%; border: 28px solid rgba(255, 255, 255, 0.25); }
+  .athlete-max small { font-size: 10px; letter-spacing: 0.18em; font-weight: 900; text-transform: uppercase; }
+  .athlete-max .huge { font-family: var(--font-display); font-weight: 900; font-size: 92px; line-height: 0.9; letter-spacing: -0.04em; margin: 8px 0 4px; }
+  .athlete-max .huge span { font-size: 36px; letter-spacing: 0; }
+  .athlete-max p { font-size: 13px; line-height: 1.45; font-weight: 700; max-width: 260px; position: relative; z-index: 1; }
+  .athlete-photo { border-radius: 26px; overflow: hidden; position: relative; }
+  .athlete-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .tiers { display: grid; gap: 10px; margin-top: 14px; position: relative; z-index: 2; }
+  .tier { display: grid; grid-template-columns: 110px 1fr; align-items: center; gap: 16px; padding: 18px 20px; }
+  .tier .pct { font-family: var(--font-display); font-weight: 900; font-size: 32px; color: var(--gold); line-height: 1; }
+  .tier .pct small { display: block; font-size: 10px; letter-spacing: 0.1em; color: #9fb0d6; text-transform: uppercase; font-weight: 800; }
+  .tier b { font-family: var(--font-display); font-weight: 900; font-size: 17px; display: block; }
+  .tier p { font-size: 12px; color: #c4d0ea; line-height: 1.4; }
+  .criteria { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; position: relative; z-index: 2; }
+  .criteria div { padding: 16px; border-radius: 16px; background: rgba(255, 255, 255, 0.06); border: 1px solid rgba(255, 255, 255, 0.1); }
+  .criteria .icon { font-size: 22px; color: var(--gold); }
+  .criteria b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 14px; margin: 8px 0 3px; }
+  .criteria p { font-size: 11px; color: #c4d0ea; line-height: 1.4; }
+
+  /* ---------- 15 farda ---------- */
+  .uniform { display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 16px; margin-top: 18px; position: relative; z-index: 2; }
+  .uniform-photo { border-radius: 24px; overflow: hidden; position: relative; box-shadow: var(--shadow-float); }
+  .uniform-photo img { width: 100%; height: 100%; object-fit: cover; }
+  .uniform-photo .note { position: absolute; left: 12px; right: 12px; bottom: 12px; background: rgba(5, 15, 44, 0.86); color: var(--white); border-radius: 14px; padding: 12px 14px; font-size: 11px; line-height: 1.4; }
+  .uniform-photo .note b { color: var(--gold); display: block; font-family: var(--font-display); font-size: 13px; }
+  .uniform-list { padding: 10px 20px 12px; }
+  .uniform-group { font-size: 9.5px; letter-spacing: 0.18em; font-weight: 900; color: var(--gold-600); text-transform: uppercase; padding: 12px 0 4px; }
+  .u-item { display: flex; align-items: center; gap: 10px; padding: 11px 0; border-bottom: 1px dashed #dde3ee; }
+  .u-item:last-child { border-bottom: 0; }
+  .u-item .icon { color: var(--blue-500); font-size: 16px; }
+  .u-item span { font-size: 13px; font-weight: 700; color: var(--ink); }
+  .u-item b { margin-left: auto; font-family: var(--font-display); font-weight: 900; font-size: 15px; color: var(--navy-900); }
+  .u-item b.ask { font-size: 11px; color: var(--muted); font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; }
+  .uniform-why { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 14px; position: relative; z-index: 2; }
+  .uniform-why .card { padding: 18px 16px; }
+  .uniform-why .icon { color: var(--gold-600); font-size: 20px; }
+  .uniform-why b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 13.5px; color: var(--navy-900); margin: 6px 0 3px; }
+  .uniform-why p { font-size: 11px; color: var(--muted); line-height: 1.4; }
+
+  /* ---------- 16 resumo + passos ---------- */
+  .summary { margin-top: 18px; position: relative; z-index: 2; overflow: hidden; }
+  .summary table { width: 100%; border-collapse: collapse; }
+  .summary th { background: var(--navy-900); color: var(--white); font-family: var(--font-display); font-weight: 900; font-size: 12px; padding: 14px 12px; text-align: left; }
+  .summary th:not(:first-child), .summary td:not(:first-child) { text-align: right; }
+  .summary td { padding: 17px 12px; font-size: 12.5px; border-bottom: 1px solid var(--line); font-weight: 700; color: #3d4c6c; }
+  .summary td:first-child { font-family: var(--font-display); font-weight: 900; color: var(--navy-900); font-size: 13.5px; }
+  .summary td small { display: block; font-family: var(--font-body); font-weight: 600; font-size: 10.5px; color: var(--muted); }
+  .summary td.hl { color: var(--navy-950); font-family: var(--font-display); font-weight: 900; font-size: 14px; background: var(--gold-50); }
+  .summary tr:last-child td { border-bottom: 0; }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 18px; position: relative; z-index: 2; }
+  .step { padding: 20px 15px; position: relative; }
+  .step .number-badge { margin-bottom: 10px; }
+  .step b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 14px; color: var(--navy-900); margin-bottom: 4px; }
+  .step p { font-size: 11px; color: var(--muted); line-height: 1.4; }
+  .step:not(:last-child)::after { content: ""; position: absolute; right: -9px; top: 32px; width: 8px; height: 8px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); transform: rotate(45deg); }
+
+  /* ---------- 17 contracapa ---------- */
+  .back { padding: 0; }
+  .back-photo { position: absolute; inset: 0; background: url("assets/img/bandeiras.jpg") center / cover; opacity: 0.35; }
+  .back-shade { position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5, 15, 44, 0.6), #050f2c 55%); }
+  .back-inner { position: relative; z-index: 2; padding: 15mm; display: flex; flex-direction: column; height: 100%; }
+  .back .title { font-size: 54px; margin: 18px 0 14px; color: var(--white); }
+  .back .title em { color: var(--gold); display: block; }
+  .contact-card { margin-top: 26px; display: grid; grid-template-columns: 1fr 160px; gap: 18px; align-items: center; background: rgba(255, 255, 255, 0.07); border: 1px solid rgba(255, 255, 255, 0.14); border-radius: 26px; padding: 22px; backdrop-filter: blur(6px); }
+  .contact-line { display: flex; gap: 12px; align-items: center; margin-bottom: 14px; }
+  .contact-line:last-child { margin-bottom: 0; }
+  .contact-line .icon-badge { width: 42px; height: 42px; font-size: 20px; }
+  .contact-line small { display: block; font-size: 9px; letter-spacing: 0.18em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+  .contact-line b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 18px; }
+  .contact-line span { font-size: 11.5px; color: #c4d0ea; }
+  .qr { background: var(--white); border-radius: 18px; padding: 12px; text-align: center; }
+  .qr img { width: 100%; }
+  .qr span { display: block; font-size: 9.5px; font-weight: 900; letter-spacing: 0.1em; color: var(--navy-900); text-transform: uppercase; margin-top: 4px; }
+  .mascots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-top: 22px; }
+  .mascots figure { border-radius: 18px; overflow: hidden; background: #d9d6db; aspect-ratio: 1; position: relative; }
+  .mascots img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+  .mascots figcaption { position: absolute; left: 6px; right: 6px; bottom: 6px; background: rgba(5, 15, 44, 0.85); color: var(--white); font-size: 9.5px; font-weight: 900; text-align: center; border-radius: 8px; padding: 4px; letter-spacing: 0.06em; }
+  .notices { margin-top: auto; padding-top: 18px; border-top: 1px solid rgba(255, 255, 255, 0.12); }
+  .notices ul { list-style: none; display: grid; gap: 3px; }
+  .notices li { font-size: 9.5px; color: #8d9cc0; line-height: 1.45; }
+</style>
+</head>
+<body>
+<script src="assets/icons.js"></script>
+
+<!-- ============ 01 · CAPA ============ -->
+<section class="page cover">
+  <div class="cover-photo"></div>
+  <div class="cover-shade"></div>
+  <div class="orb gold"></div>
+  <div class="orb blue"></div>
+  <div class="cover-top">
+    <span class="pill light">Matrículas 2027</span>
+    <div class="crest"><img src="assets/img/logo.jpg" alt="Brasão do Colégio CPPEM"></div>
+  </div>
+  <div class="cover-body on-dark">
+    <p class="eyebrow">Guia da Família · Colégio CPPEM</p>
+    <h1 class="title">Formando líderes, <em>transformando vidas.</em></h1>
+    <div class="gold-rule" style="margin-bottom:16px"></div>
+    <p class="lead">Fé, disciplina, excelência acadêmica e tecnologia em uma nova sede preparada para o futuro do seu filho — do 1º ano do Fundamental ao 3º ano do Ensino Médio.</p>
+  </div>
+  <div class="cover-band">
+    <div><small>Nova sede · Zona Norte</small><b>Rodovia PE-095, 562<br>Luiz Gonzaga · Caruaru-PE</b></div>
+    <div><small>Programa Bolsa Atleta</small><b>Bolsas de até <strong>80%</strong></b></div>
+    <div><small>Mensalidades 2027</small><b>Bolsas de até <strong>40%</strong></b></div>
+  </div>
+</section>
+
+<!-- ============ 02 · BOAS-VINDAS ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">Boas-vindas</span>
+  </header>
+  <div class="welcome">
+    <div class="letter">
+      <p class="eyebrow">Para a sua família</p>
+      <h2 class="title">Uma escola para formar <em>pessoas inteiras.</em></h2>
+      <p>Escolher uma escola é escolher o ambiente que vai ajudar a formar o caráter, os hábitos e os sonhos do seu filho. No CPPEM, acreditamos que excelência acadêmica e valores caminham juntos.</p>
+      <p>Somos uma escola <b>cristã, militarizada e preparatória</b>. Aqui, cada aluno aprende a ter rotina, respeito e responsabilidade — e encontra uma base sólida para conquistar vestibulares, concursos e os próprios projetos de vida.</p>
+      <p>Em 2027 damos um passo histórico: uma <b>nova sede</b>, com estrutura ampla, material didático <b>IRIUM</b> integrado a plataforma digital e um <b>sistema escolar próprio</b> que aproxima família, alunos e professores.</p>
+      <p class="sign">Equipe Colégio CPPEM</p>
+    </div>
+    <figure class="portrait">
+      <img src="assets/img/aluna-medio.jpg" alt="Aluna do Ensino Médio do CPPEM">
+      <figcaption class="badge"><b>Do 1º ano EF ao 3º ano EM</b>Uma jornada completa de formação</figcaption>
+    </figure>
+  </div>
+  <div class="stats">
+    <div class="stat"><b>4</b><span>pilares que guiam toda a formação</span></div>
+    <div class="stat"><b>≈6.400 m²</b><span>de área na nova sede</span></div>
+    <div class="stat"><b>12</b><span>salas de aula planejadas</span></div>
+    <div class="stat"><b>até 80%</b><span>no Programa Bolsa Atleta</span></div>
+  </div>
+  <div class="toc">
+    <h3>Neste guia</h3>
+    <ol>
+      <li>Nossos 4 pilares <span>03</span></li>
+      <li>Livros IRIUM <span>08</span></li>
+      <li>Disciplina na prática <span>04</span></li>
+      <li>Plataforma IRIUM <span>09</span></li>
+      <li>Nossos diferenciais <span>05</span></li>
+      <li>Sistema escolar CPPEM <span>11</span></li>
+      <li>A nova sede <span>06</span></li>
+      <li>Mensalidades e bolsas <span>13</span></li>
+      <li>Tecnologia a favor do aprendizado <span>07</span></li>
+      <li>Bolsa Atleta, farda e próximos passos <span>14</span></li>
+    </ol>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>02</b></footer>
+</section>
+
+<!-- ============ 03 · PILARES ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">01 · Pilares</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Nossa essência</p>
+    <h2 class="title">Quatro pilares.<br><em>Uma formação completa.</em></h2>
+    <p class="lead">Uma proposta que une direção espiritual, comportamento, visão profissional e autonomia para a vida.</p>
+  </div>
+  <div class="pillars">
+    <article class="card pillar">
+      <div class="top"><div class="icon-badge"><svg class="icon"><use href="#i-cross"/></svg></div><span class="big-no">01</span></div>
+      <h3>Fé Cristã</h3>
+      <p>Princípios bíblicos, caráter, propósito e respeito vivenciados no cotidiano escolar.</p>
+      <div class="practice"><small>Na prática</small>
+        <ul class="check-list"><li>Valores que orientam decisões e relações</li><li>Formação de caráter e propósito de vida</li><li>Respeito ao próximo dentro e fora da escola</li></ul>
+      </div>
+    </article>
+    <article class="card pillar">
+      <div class="top"><div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div><span class="big-no">02</span></div>
+      <h3>Disciplina</h3>
+      <p>Rotina, hierarquia, responsabilidade e constância para transformar objetivos em resultados.</p>
+      <div class="practice"><small>Na prática</small>
+        <ul class="check-list"><li>Rotina organizada e postura militarizada</li><li>Respeito à hierarquia e aos colegas</li><li>Foco, pontualidade e compromisso</li></ul>
+      </div>
+    </article>
+    <article class="card pillar">
+      <div class="top"><div class="icon-badge"><svg class="icon"><use href="#i-landmark"/></svg></div><span class="big-no">03</span></div>
+      <h3>Estabilidade</h3>
+      <p>Preparação acadêmica e para concursos desde a base, ampliando caminhos profissionais seguros.</p>
+      <div class="practice"><small>Na prática</small>
+        <ul class="check-list"><li>Base acadêmica sólida desde o Fundamental I</li><li>Visão de concursos e grandes objetivos</li><li>Simulados, questões e revisão contínua</li></ul>
+      </div>
+    </article>
+    <article class="card pillar">
+      <div class="top"><div class="icon-badge"><svg class="icon"><use href="#i-trending"/></svg></div><span class="big-no">04</span></div>
+      <h3>Liberdade</h3>
+      <p>Empreendedorismo e educação financeira para gerir recursos, criar valor e escolher caminhos.</p>
+      <div class="practice"><small>Na prática</small>
+        <ul class="check-list"><li>Educação financeira aplicada à vida real</li><li>Mentalidade empreendedora</li><li>Autonomia para escolher o próprio futuro</li></ul>
+      </div>
+    </article>
+  </div>
+  <div class="motto">
+    <div class="orb blue" style="width:260px;height:260px;right:-80px;top:-110px"></div>
+    <svg class="icon"><use href="#i-star"/></svg>
+    <p>Formar líderes é preparar escolhas que <em>atravessam toda a vida</em> — na fé, nos estudos, na carreira e nas finanças.</p>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>03</b></footer>
+</section>
+
+<!-- ============ 04 · DISCIPLINA NA PRÁTICA ============ -->
+<section class="page dark on-dark">
+  <div class="orb blue" style="width:500px;height:500px;right:-220px;top:-160px"></div>
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">02 · Vida escolar</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Disciplina na prática</p>
+    <h2 class="title">Postura, respeito e <em>senso de missão.</em></h2>
+    <p class="lead">A disciplina militarizada não é rigidez: é uma ferramenta de formação que ensina o aluno a se organizar, respeitar e assumir responsabilidades.</p>
+  </div>
+  <div class="photo-grid">
+    <figure><img src="assets/img/bandeiras.jpg" alt="Alunos em formação com bandeiras"><figcaption>Formação e cerimônias cívicas</figcaption></figure>
+    <figure><img src="assets/img/continencia.jpg" alt="Alunos prestando continência"><figcaption>Hierarquia e respeito</figcaption></figure>
+    <figure><img src="assets/img/formatura.jpg" alt="Turma em formação"><figcaption>Rotina e senso de equipe</figcaption></figure>
+  </div>
+  <div class="quote-block">
+    <div><svg class="icon"><use href="#i-calendar"/></svg><b>Rotina</b><p>Hábitos diários que constroem constância e autonomia nos estudos.</p></div>
+    <div><svg class="icon"><use href="#i-users"/></svg><b>Respeito</b><p>Hierarquia, cortesia e convivência saudável entre alunos e educadores.</p></div>
+    <div><svg class="icon"><use href="#i-target"/></svg><b>Responsabilidade</b><p>Compromisso com metas, horários e com a própria evolução.</p></div>
+  </div>
+  <p class="big-quote">Disciplina é o que transforma <em>objetivos em resultados.</em></p>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>04</b></footer>
+</section>
+
+<!-- ============ 05 · DIFERENCIAIS ============ -->
+<section class="page dark on-dark">
+  <div class="orb gold" style="width:420px;height:420px;left:-200px;bottom:80px"></div>
+  <div class="rings" style="width:300px;height:300px;right:-100px;top:-90px"></div>
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">03 · Diferenciais</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Por que escolher o CPPEM</p>
+    <h2 class="title">Diferenciais que <em>se conectam.</em></h2>
+    <p class="lead">Não são benefícios isolados: é um ecossistema de formação, acompanhamento e preparação que trabalha junto todos os dias.</p>
+  </div>
+  <div class="diffs">
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-heart"/></svg></div><div><b>Formação cristã e de caráter</b><p>Valores que orientam decisões, relações e responsabilidades dentro e fora da escola.</p></div></div>
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-shield"/></svg></div><div><b>Disciplina militarizada</b><p>Organização, hierarquia, postura, foco e compromisso como ferramentas de formação.</p></div></div>
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-graduation"/></svg></div><div><b>Preparação desde a base</b><p>Desenvolvimento acadêmico contínuo com visão de vestibulares, concursos e grandes objetivos.</p></div></div>
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-coins"/></svg></div><div><b>Educação financeira e empreendedorismo</b><p>Competências reais para planejar, decidir, identificar oportunidades e criar valor.</p></div></div>
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-book"/></svg></div><div><b>Material IRIUM integrado</b><p>Livros, plataforma, questões e uma jornada de estudo que conecta teoria, prática e revisão.</p></div></div>
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-monitor"/></svg></div><div><b>Tecnologia a favor da aprendizagem</b><p>Pré-aulas, videoaulas e questões em ambiente digital, antes e depois da sala de aula.</p></div></div>
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-chart"/></svg></div><div><b>Sistema escolar próprio</b><p>Médias, frequência, ocorrências, tarefas e comunicação em tempo real para toda a família.</p></div></div>
+    <div class="card-dark diff"><div class="icon-badge glow"><svg class="icon"><use href="#i-trophy"/></svg></div><div><b>Esporte valorizado</b><p>Programa Bolsa Atleta com até 80% para quem une desempenho esportivo e escolar.</p></div></div>
+    <div class="diff feature card"><div class="icon-badge"><svg class="icon"><use href="#i-building"/></svg></div><div><b>Nova sede · ≈6.400 m² na Zona Norte de Caruaru</b><p>Estrutura ampla, com 12 salas, quadras, biblioteca, sala de informática, estacionamento e área verde — planejada para acolher e sustentar o crescimento da nossa comunidade escolar.</p></div></div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>05</b></footer>
+</section>
+
+<!-- ============ 06 · NOVA SEDE ============ -->
+<section class="page white">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">04 · Nova sede</span>
+  </header>
+  <div class="campus-hero">
+    <img src="assets/img/planta-aerea.jpg" alt="Pré-projeto da nova sede do Colégio CPPEM, vista aérea">
+    <span class="label">Pré-projeto · imagem ilustrativa</span>
+    <div class="area"><b>≈ 6.400 m²</b><span>de área planejada</span></div>
+  </div>
+  <div class="campus-body">
+    <p class="eyebrow">Uma estrutura para avançar</p>
+    <h2 class="title">Uma nova sede.<br><em>O mesmo propósito.</em></h2>
+    <p class="lead">Espaços pensados para estudar, praticar esportes, ler, conviver e crescer — com segurança e conforto para alunos e famílias.</p>
+    <div class="amenities">
+      <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-door"/></svg></div><b>12 salas de aula</b></div>
+      <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-ball"/></svg></div><b>Quadras esportivas</b></div>
+      <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-book"/></svg></div><b>Biblioteca</b></div>
+      <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-computer"/></svg></div><b>Sala de informática</b></div>
+      <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-car"/></svg></div><b>Estacionamento</b></div>
+      <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-tree"/></svg></div><b>Área verde</b></div>
+    </div>
+    <div class="address">
+      <div class="card-dark"><svg class="icon"><use href="#i-pin"/></svg><div><small>Novo endereço</small><b>Rodovia PE-095, 562 · Luiz Gonzaga · Caruaru-PE</b><span>Ao lado do Buffet Renato Machado, próximo ao Fórum</span></div></div>
+      <div class="facade"><img src="assets/img/fachada.jpg" alt="Fachada da nova sede CPPEM"></div>
+    </div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>06</b></footer>
+</section>
+
+<!-- ============ 07 · TECNOLOGIA / ECOSSISTEMA ============ -->
+<section class="page dark on-dark">
+  <div class="orb blue" style="width:560px;height:560px;left:-260px;top:200px"></div>
+  <div class="rings" style="width:260px;height:260px;right:-70px;top:-60px"></div>
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">05 · Tecnologia</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Tecnologia com propósito</p>
+    <h2 class="title">A tecnologia<br><em>a favor do aprendizado.</em></h2>
+    <p class="lead">Livro, plataforma, sala de aula e acompanhamento escolar conectados em uma única jornada — e a família enxergando tudo.</p>
+  </div>
+  <div class="eco">
+    <div class="eco-step"><div class="icon-badge glow"><svg class="icon"><use href="#i-book"/></svg></div><div><small>Etapa 1 · Material</small><b>Livros IRIUM</b><p>Conteúdo impresso organizado por segmento, com teoria, exercícios e revisão.</p></div><div class="chips"><span class="chip">Fund. I</span><span class="chip">Fund. II</span><span class="chip">Ensino Médio</span></div></div>
+    <div class="eco-link"></div>
+    <div class="eco-step"><div class="icon-badge glow"><svg class="icon"><use href="#i-play"/></svg></div><div><small>Etapa 2 · Digital</small><b>Plataforma IRIUM</b><p>Pré-aula para chegar preparado, videoaulas e questões para fixar o conteúdo.</p></div><div class="chips"><span class="chip">Pré-aula</span><span class="chip">Aulas</span><span class="chip">Questões</span></div></div>
+    <div class="eco-link"></div>
+    <div class="eco-step"><div class="icon-badge glow"><svg class="icon"><use href="#i-users"/></svg></div><div><small>Etapa 3 · Presencial</small><b>Sala de aula CPPEM</b><p>Professores aprofundam, tiram dúvidas e acompanham cada aluno de perto.</p></div><div class="chips"><span class="chip">Professores</span><span class="chip">Disciplina</span></div></div>
+    <div class="eco-link"></div>
+    <div class="eco-step"><div class="icon-badge glow"><svg class="icon"><use href="#i-chart"/></svg></div><div><small>Etapa 4 · Acompanhamento</small><b>escola.cppem.com.br</b><p>Nosso sistema próprio registra médias, frequência, ocorrências e tarefas.</p></div><div class="chips"><span class="chip">Médias</span><span class="chip">Frequência</span><span class="chip">Ocorrências</span></div></div>
+    <div class="eco-link"></div>
+    <div class="eco-step family"><div class="icon-badge"><svg class="icon"><use href="#i-home"/></svg></div><div><small>Resultado</small><b>Família presente</b><p>Pais acompanham a vida escolar em tempo real, de qualquer lugar.</p></div><div class="chips"><span class="chip">Transparência</span><span class="chip">Parceria</span></div></div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>07</b></footer>
+</section>
+
+<!-- ============ 08 · LIVROS IRIUM ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">06 · Material didático</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Material didático IRIUM</p>
+    <h2 class="title">Do livro <em>à experiência digital.</em></h2>
+    <p class="lead">Conteúdo impresso e digital trabalhando juntos para ampliar o estudo, a prática e a revisão — em casa e na escola.</p>
+  </div>
+  <div class="books-stage">
+    <div class="orb blue"></div>
+    <div class="books-fan">
+      <div class="book f1"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Fundamental I</span><span class="vol">Anos iniciais</span></div>
+      <div class="book f2"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Fundamental II</span><span class="vol">Anos finais</span></div>
+      <div class="book em"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Médio</span><span class="vol">1ª à 3ª série</span></div>
+    </div>
+    <div class="floating" style="left:22px;top:22px"><svg class="icon"><use href="#i-layers"/></svg>Impresso + digital</div>
+    <div class="floating" style="right:22px;top:22px"><svg class="icon"><use href="#i-play"/></svg>Videoaulas</div>
+    <div class="floating" style="right:22px;bottom:40px"><svg class="icon"><use href="#i-check-square"/></svg>Banco de questões</div>
+    <span class="illus">Representação ilustrativa</span>
+  </div>
+  <div class="books-includes">
+    <div class="card"><svg class="icon"><use href="#i-book"/></svg><b>Livros por segmento</b><p>Conteúdo organizado por disciplina e etapa.</p></div>
+    <div class="card"><svg class="icon"><use href="#i-file"/></svg><b>Pré-aulas</b><p>O aluno chega à aula sabendo o que vai estudar.</p></div>
+    <div class="card"><svg class="icon"><use href="#i-play"/></svg><b>Aulas em vídeo</b><p>Explicações para rever quantas vezes precisar.</p></div>
+    <div class="card"><svg class="icon"><use href="#i-check-square"/></svg><b>Questões</b><p>Prática e revisão com foco em vestibulares e concursos.</p></div>
+  </div>
+  <div class="book-prices">
+    <div class="card book-price"><small>Fundamental I</small><p class="cash"><sup>R$</sup>1.397</p><span class="cond">à vista</span><div class="inst">ou 12x de <b>R$ 145,75</b> no cartão</div></div>
+    <div class="card book-price mid"><small>Fundamental II</small><p class="cash"><sup>R$</sup>1.697</p><span class="cond">à vista</span><div class="inst">ou 12x de <b>R$ 177,05</b> no cartão</div></div>
+    <div class="card book-price"><small>Ensino Médio</small><p class="cash"><sup>R$</sup>1.897</p><span class="cond">à vista</span><div class="inst">ou 12x de <b>R$ 197,00</b> no cartão</div></div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>08</b></footer>
+</section>
+
+<!-- ============ 09 · PLATAFORMA IRIUM: JORNADA ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">07 · Plataforma IRIUM</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Plataforma IRIUM</p>
+    <h2 class="title">Aprender antes, durante<br><em>e depois da aula.</em></h2>
+    <p class="lead">Cada aula tem uma trilha: o aluno se prepara, assiste e pratica. Assim o tempo em sala rende muito mais.</p>
+  </div>
+  <div class="journey">
+    <div class="card"><span class="num">1</span><div class="icon-badge"><svg class="icon"><use href="#i-file"/></svg></div><b>Pré-aula</b><p>Material de estudo com prazo, para chegar à aula já familiarizado com o tema.</p></div>
+    <div class="card"><span class="num">2</span><div class="icon-badge"><svg class="icon"><use href="#i-play"/></svg></div><b>Aula</b><p>Videoaula com professores explicando e resolvendo questões passo a passo.</p></div>
+    <div class="card"><span class="num">3</span><div class="icon-badge"><svg class="icon"><use href="#i-check-square"/></svg></div><b>Questões</b><p>Exercícios para fixar o conteúdo e medir o que já foi aprendido.</p></div>
+  </div>
+  <div class="shot-main">
+    <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Trilha da aula</span></div><img src="assets/prints/irium-preaula.jpg" alt="Print da plataforma IRIUM mostrando pré-aula e videoaula de Matemática"></div>
+    <div class="callout" style="left:-10px;top:120px"><svg class="icon"><use href="#i-file"/></svg>Pré-aula com prazo</div>
+    <div class="callout gold" style="right:-10px;top:330px"><svg class="icon"><use href="#i-play"/></svg>Videoaula integrada</div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Prints reais da plataforma IRIUM</span><b>09</b></footer>
+</section>
+
+<!-- ============ 10 · PLATAFORMA IRIUM: CONTEÚDO ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">07 · Plataforma IRIUM</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Conteúdo organizado</p>
+    <h2 class="title">Todas as disciplinas, <em>aula por aula.</em></h2>
+  </div>
+  <div class="shots-stack">
+    <div>
+      <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Geografia</span></div><img src="assets/prints/irium-aulas.jpg" alt="Print da plataforma IRIUM com aulas de Geografia"></div>
+      <div class="shot-caption"><div class="icon-badge"><svg class="icon"><use href="#i-play"/></svg></div><div><b>Aulas sequenciais por disciplina</b><p>Cada módulo traz suas aulas em ordem, com acesso direto ao conteúdo.</p></div></div>
+    </div>
+    <div class="subjects-split">
+      <div>
+        <div class="shot-caption" style="margin-top:0"><div class="icon-badge"><svg class="icon"><use href="#i-layers"/></svg></div><div><b>Disciplinas e trilhas de competências</b><p>Além das matérias regulares, trilhas de Competências &amp; Habilidades por área do conhecimento e Clube do Livro.</p></div></div>
+        <div class="subject-cloud">
+          <span>Matemática</span><span>Língua Portuguesa</span><span>Leitura e Produção Textual</span><span>Física</span><span>Química</span><span>Biologia</span><span>História</span><span>Geografia</span><span>Filosofia</span><span>Sociologia</span><span>Inglês</span><span>Espanhol</span><span>Arte</span><span>Clube do Livro</span><span>Competências &amp; Habilidades</span>
+        </div>
+      </div>
+      <div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Disciplinas</span></div><img src="assets/prints/irium-disciplinas.jpg" alt="Print da plataforma IRIUM com lista de disciplinas"></div>
+    </div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Prints reais da plataforma IRIUM</span><b>10</b></footer>
+</section>
+
+<!-- ============ 11 · SISTEMA ESCOLAR: PAINEL ============ -->
+<section class="page dark on-dark">
+  <div class="orb blue" style="width:520px;height:520px;right:-240px;top:220px"></div>
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">08 · Sistema escolar</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">escola.cppem.com.br</p>
+    <h2 class="title">Nosso sistema escolar.<br><em>Feito em casa.</em></h2>
+    <p class="lead">Desenvolvido pela própria equipe do CPPEM, é onde alunos, pais e professores acompanham médias, frequência, ocorrências, tarefas e tiram dúvidas.</p>
+    <span class="made-here"><svg class="icon"><use href="#i-star"/></svg>Tecnologia própria CPPEM</span>
+  </div>
+  <div class="system-shot">
+    <div class="browser dark"><div class="browser-bar"><i></i><i></i><i></i><span>escola.cppem.com.br · Meu painel</span></div><img src="assets/prints/escola-painel.jpg" alt="Print do painel do aluno no sistema escolar CPPEM"></div>
+  </div>
+  <div class="audiences">
+    <div class="card-dark audience"><div class="icon-badge glow"><svg class="icon"><use href="#i-graduation"/></svg></div><b>Alunos</b><ul><li>Notas e médias por unidade</li><li>Frequência e tarefas</li><li>Resultados e votações</li></ul></div>
+    <div class="card-dark audience"><div class="icon-badge glow"><svg class="icon"><use href="#i-home"/></svg></div><b>Pais e responsáveis</b><ul><li>Boletim em tempo real</li><li>Ocorrências registradas</li><li>Canal para dúvidas</li></ul></div>
+    <div class="card-dark audience"><div class="icon-badge glow"><svg class="icon"><use href="#i-briefcase"/></svg></div><b>Professores</b><ul><li>Lançamento de notas</li><li>Publicação de tarefas</li><li>Registro de eventos da turma</li></ul></div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Prints reais do sistema</span><b>11</b></footer>
+</section>
+
+<!-- ============ 12 · SISTEMA ESCOLAR: TURMA ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">08 · Sistema escolar</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Família e escola na mesma direção</p>
+    <h2 class="title">Tudo da turma <em>em um só lugar.</em></h2>
+    <p class="lead">Um único ambiente para acompanhar a vida escolar — sem depender de recados perdidos na mochila.</p>
+  </div>
+  <div class="system-split">
+    <div class="browser dark"><div class="browser-bar"><i></i><i></i><i></i><span>escola.cppem.com.br · Minha turma</span></div><img src="assets/prints/escola-turma.jpg" alt="Print da página da turma no sistema escolar CPPEM"></div>
+    <div class="features">
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-chart"/></svg></div><div><b>Médias e boletim</b><p>Notas por disciplina, unidade e simulados.</p></div></div>
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-calendar"/></svg></div><div><b>Frequência</b><p>Presença consolidada e atualizada.</p></div></div>
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-shield-alert"/></svg></div><div><b>Ocorrências</b><p>Registros disciplinares com transparência.</p></div></div>
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-clipboard"/></svg></div><div><b>Tarefas</b><p>Atividades publicadas pelos professores.</p></div></div>
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-question"/></svg></div><div><b>Dúvidas e comunicação</b><p>Canal direto entre família, aluno e escola.</p></div></div>
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-star"/></svg></div><div><b>Resultados</b><p>Desempenho disponível para consulta.</p></div></div>
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-vote"/></svg></div><div><b>Votações</b><p>Participação dos alunos nas decisões da turma.</p></div></div>
+      <div class="card feature"><div class="icon-badge"><svg class="icon"><use href="#i-bell"/></svg></div><div><b>Últimos eventos</b><p>Movimentações recentes da turma.</p></div></div>
+    </div>
+  </div>
+  <div class="tech-banner">
+    <div class="orb blue" style="width:240px;height:240px;right:-60px;top:-100px"></div>
+    <svg class="icon"><use href="#i-monitor"/></svg>
+    <p>Tecnologia não substitui o professor: ela <em>amplia o acompanhamento</em> e aproxima a família da escola.</p>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Prints reais do sistema</span><b>12</b></footer>
+</section>
+
+<!-- ============ 13 · MENSALIDADES ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">09 · Investimento</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Mensalidades 2027</p>
+    <h2 class="title">Condições para <em>cada família.</em></h2>
+    <p class="lead">Valores mensais com bolsas previstas de 20%, 30% ou 40%, conforme análise.</p>
+  </div>
+  <div class="prices">
+    <div class="price-card">
+      <div class="price-head"><h3>Fundamental I</h3><p>1º ao 5º ano</p></div>
+      <div class="price-normal">NORMAL <b>R$ 1.297,00</b></div>
+      <div class="price-rows">
+        <div class="price-row"><span>BOLSA 20%</span><b>R$ 1.037,60</b></div>
+        <div class="price-row"><span>BOLSA 30%</span><b>R$ 907,90</b></div>
+        <div class="price-row best"><span>BOLSA 40%</span><b>R$ 778,20</b></div>
+      </div>
+      <div class="savings">Economia anual com 40%<b>R$ 6.225,60</b></div>
+    </div>
+    <div class="price-card">
+      <div class="price-head"><h3>Fundamental II</h3><p>6º ao 8º ano</p></div>
+      <div class="price-normal">NORMAL <b>R$ 1.497,00</b></div>
+      <div class="price-rows">
+        <div class="price-row"><span>BOLSA 20%</span><b>R$ 1.197,60</b></div>
+        <div class="price-row"><span>BOLSA 30%</span><b>R$ 1.047,90</b></div>
+        <div class="price-row best"><span>BOLSA 40%</span><b>R$ 898,20</b></div>
+      </div>
+      <div class="savings">Economia anual com 40%<b>R$ 7.185,60</b></div>
+    </div>
+    <div class="price-card">
+      <div class="price-head"><h3>9º ano + Médio</h3><p>9º ano à 3ª série</p></div>
+      <div class="price-normal">NORMAL <b>R$ 1.597,00</b></div>
+      <div class="price-rows">
+        <div class="price-row"><span>BOLSA 20%</span><b>R$ 1.277,60</b></div>
+        <div class="price-row"><span>BOLSA 30%</span><b>R$ 1.117,90</b></div>
+        <div class="price-row best"><span>BOLSA 40%</span><b>R$ 958,20</b></div>
+      </div>
+      <div class="savings">Economia anual com 40%<b>R$ 7.665,60</b></div>
+    </div>
+  </div>
+  <div class="how-it-works">
+    <div class="card"><div class="number-badge">1</div><div><b>Agende uma visita</b><p>Conheça a proposta e a nova sede com a nossa equipe.</p></div></div>
+    <div class="card"><div class="number-badge">2</div><div><b>Análise da bolsa</b><p>Avaliamos o perfil da família conforme critérios institucionais.</p></div></div>
+    <div class="card"><div class="number-badge">3</div><div><b>Garanta a vaga</b><p>Vagas limitadas por turma na campanha 2027.</p></div></div>
+  </div>
+  <div class="cta-strip">
+    <div class="orb blue" style="width:240px;height:240px;right:120px;top:-120px"></div>
+    <div class="check"><svg class="icon"><use href="#i-check-square"/></svg></div>
+    <div><b>A melhor condição começa com uma conversa.</b><span>Agende uma visita e conheça as possibilidades de bolsa.</span></div>
+    <span class="btn">(81) 99707-6388</span>
+  </div>
+  <div class="invest-photo"><img src="assets/img/sala-aula.jpg" alt="Alunos do CPPEM em sala de aula"><p><span>Investir em educação é investir<br>em <em>escolhas para toda a vida.</em></span></p></div>
+  <p class="fine-print" style="margin-top:12px;position:relative;z-index:2">Economia anual calculada sobre 12 mensalidades. Bolsas sujeitas à análise, critérios institucionais e disponibilidade de vagas.</p>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>13</b></footer>
+</section>
+
+<!-- ============ 14 · BOLSA ATLETA ============ -->
+<section class="page dark on-dark">
+  <div class="orb gold" style="width:460px;height:460px;right:-200px;top:-140px"></div>
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">10 · Bolsa Atleta</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Programa Bolsa Atleta</p>
+    <h2 class="title">Talento no esporte.<br><em>Compromisso na escola.</em></h2>
+    <p class="lead">Um programa para alunos atletas que unem desempenho esportivo, rendimento escolar e postura exemplar.</p>
+  </div>
+  <div class="athlete-hero">
+    <div class="athlete-max"><small>Bolsas de até</small><p class="huge">80<span>%</span></p><p>Percentual definido pela comissão avaliadora conforme a categoria do atleta.</p></div>
+    <div class="athlete-photo"><img src="assets/img/turma-campo.jpg" alt="Alunos do CPPEM reunidos em campo"></div>
+  </div>
+  <div class="tiers">
+    <div class="card-dark tier"><p class="pct">80%<small>de bolsa</small></p><div><b>Atleta Elite</b><p>Destaque esportivo de alto rendimento, aliado a bom desempenho escolar e conduta exemplar.</p></div></div>
+    <div class="card-dark tier"><p class="pct">60%<small>de bolsa</small></p><div><b>Atleta Performance</b><p>Atleta com resultados consistentes em competições e compromisso com os estudos.</p></div></div>
+    <div class="card-dark tier"><p class="pct">até 50%<small>de bolsa</small></p><div><b>Atleta em Desenvolvimento</b><p>Jovens talentos em evolução, com dedicação ao esporte e à escola.</p></div></div>
+  </div>
+  <div class="criteria">
+    <div><svg class="icon"><use href="#i-trophy"/></svg><b>Desempenho esportivo</b><p>Resultados e potencial na modalidade.</p></div>
+    <div><svg class="icon"><use href="#i-chart"/></svg><b>Rendimento escolar</b><p>Compromisso acadêmico ao longo do ano.</p></div>
+    <div><svg class="icon"><use href="#i-shield"/></svg><b>Postura exemplar</b><p>Disciplina, respeito e espírito de equipe.</p></div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Percentual definido pela comissão avaliadora</span><b>14</b></footer>
+</section>
+
+<!-- ============ 15 · FARDA ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">11 · Farda oficial</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Farda oficial</p>
+    <h2 class="title">Identidade, postura<br><em>e pertencimento.</em></h2>
+    <p class="lead">A farda representa os valores do CPPEM e faz parte da formação: cuidado com a apresentação, senso de equipe e orgulho de pertencer.</p>
+  </div>
+  <div class="uniform">
+    <div class="uniform-photo">
+      <img src="assets/img/aluna-fund2.jpg" alt="Aluna do CPPEM usando a farda oficial">
+      <div class="note"><b>Valores por peça</b>Monte o kit conforme o segmento e a necessidade do aluno.</div>
+    </div>
+    <div class="card uniform-list">
+      <p class="uniform-group">Farda</p>
+      <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa azul gandola</span><b>R$ 99,70</b></div>
+      <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Calça azul</span><b>R$ 99,70</b></div>
+      <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Saia</span><b>R$ 99,70</b></div>
+      <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa branca UV</span><b>R$ 69,90</b></div>
+      <p class="uniform-group">Educação física</p>
+      <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa de educação física</span><b>R$ 69,90</b></div>
+      <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Short de educação física</span><b>R$ 74,90</b></div>
+      <p class="uniform-group">Acessórios</p>
+      <div class="u-item"><svg class="icon"><use href="#i-shield"/></svg><span>Cinto</span><b>R$ 35,00</b></div>
+      <div class="u-item"><svg class="icon"><use href="#i-file"/></svg><span>Tarjeta</span><b>R$ 35,00</b></div>
+      <div class="u-item"><svg class="icon"><use href="#i-briefcase"/></svg><span>Mochila</span><b>R$ 174,90</b></div>
+      <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Casaco e calça de moletom</span><b class="ask">Sob consulta</b></div>
+    </div>
+  </div>
+  <div class="uniform-why">
+    <div class="card"><svg class="icon"><use href="#i-shield"/></svg><b>Postura</b><p>Apresentação impecável faz parte da rotina militarizada.</p></div>
+    <div class="card"><svg class="icon"><use href="#i-users"/></svg><b>Igualdade</b><p>Todos com a mesma farda, sem distinções.</p></div>
+    <div class="card"><svg class="icon"><use href="#i-heart"/></svg><b>Pertencimento</b><p>Orgulho de representar o CPPEM.</p></div>
+  </div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027 · Valores sujeitos à disponibilidade de tamanhos</span><b>15</b></footer>
+</section>
+
+<!-- ============ 16 · RESUMO + PASSOS ============ -->
+<section class="page">
+  <header class="page-head">
+    <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+    <span class="section-no">12 · Resumo</span>
+  </header>
+  <div class="h-block">
+    <p class="eyebrow">Planejamento da família</p>
+    <h2 class="title">Seu investimento <em>em um só quadro.</em></h2>
+    <p class="lead">Mensalidade com as bolsas previstas e material didático IRIUM, por segmento.</p>
+  </div>
+  <div class="card summary">
+    <table>
+      <thead><tr><th>Segmento</th><th>Mensalidade normal</th><th>Com bolsa 20%</th><th>Com bolsa 40%</th><th>Livros IRIUM</th></tr></thead>
+      <tbody>
+        <tr><td>Fundamental I<small>1º ao 5º ano</small></td><td>R$ 1.297,00</td><td>R$ 1.037,60</td><td class="hl">R$ 778,20</td><td>R$ 1.397 à vista<small>ou 12x R$ 145,75</small></td></tr>
+        <tr><td>Fundamental II<small>6º ao 8º ano</small></td><td>R$ 1.497,00</td><td>R$ 1.197,60</td><td class="hl">R$ 898,20</td><td>R$ 1.697 à vista<small>ou 12x R$ 177,05</small></td></tr>
+        <tr><td>9º ano + Médio<small>9º ano à 3ª série</small></td><td>R$ 1.597,00</td><td>R$ 1.277,60</td><td class="hl">R$ 958,20</td><td>R$ 1.897 à vista<small>ou 12x R$ 197,00</small></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="fine-print" style="margin-top:10px;position:relative;z-index:2">* Livros do 9º ano conforme tabela do segmento correspondente — confirme com a secretaria. Farda vendida por peça (página 15).</p>
+  <div class="h-block" style="margin-top:24px">
+    <p class="eyebrow">Próximos passos</p>
+    <h2 class="title" style="font-size:30px">Como garantir a vaga</h2>
+  </div>
+  <div class="steps">
+    <div class="card step"><div class="number-badge">1</div><b>Fale conosco</b><p>Chame no WhatsApp e tire suas primeiras dúvidas.</p></div>
+    <div class="card step"><div class="number-badge">2</div><b>Visite o CPPEM</b><p>Conheça a proposta, a equipe e a nova sede.</p></div>
+    <div class="card step"><div class="number-badge">3</div><b>Converse sobre bolsas</b><p>Analisamos juntos a melhor condição para sua família.</p></div>
+    <div class="card step"><div class="number-badge">4</div><b>Matrícula 2027</b><p>Reserve a vaga, o material IRIUM e a farda.</p></div>
+  </div>
+  <div class="cta-strip" style="margin-top:18px">
+    <div class="orb gold" style="width:240px;height:240px;right:100px;top:-120px"></div>
+    <div class="check"><svg class="icon"><use href="#i-chat"/></svg></div>
+    <div><b>Vagas limitadas por turma.</b><span>Fale agora com a nossa equipe de matrículas.</span></div>
+    <span class="btn">(81) 99707-6388</span>
+  </div>
+  <div class="invest-photo" style="margin-top:16px;height:130px"><img src="assets/img/turma-campo.jpg" alt="Alunos do CPPEM reunidos" style="object-position:center 55%"><p><span>Fé, disciplina, estabilidade e liberdade:<br><em>uma formação para toda a vida.</em></span></p></div>
+  <footer class="page-foot"><span>Colégio CPPEM · Guia da Família 2027</span><b>16</b></footer>
+</section>
+
+<!-- ============ 17 · CONTRACAPA ============ -->
+<section class="page dark on-dark back">
+  <div class="back-photo"></div>
+  <div class="back-shade"></div>
+  <div class="orb blue" style="width:520px;height:520px;left:-240px;top:280px"></div>
+  <div class="back-inner">
+    <header class="page-head" style="margin-bottom:0">
+      <div class="brandmark"><div class="crest"><img src="assets/img/logo.jpg" alt=""></div><div><b>COLÉGIO CPPEM</b><small>Fé · Disciplina · Estabilidade · Liberdade</small></div></div>
+      <span class="pill light">Matrículas 2027</span>
+    </header>
+    <div style="margin-top:60px">
+      <p class="eyebrow">Sua próxima conquista</p>
+      <h2 class="title">A próxima história <em>começa aqui.</em></h2>
+      <p class="lead" style="max-width:480px">Agende uma visita, conheça a proposta do CPPEM e converse com a nossa equipe sobre a melhor condição para a sua família.</p>
+    </div>
+    <div class="contact-card">
+      <div>
+        <div class="contact-line"><div class="icon-badge glow"><svg class="icon"><use href="#i-chat"/></svg></div><div><small>WhatsApp · Matrículas</small><b>(81) 99707-6388</b><span>Escaneie o QR Code e fale com a gente</span></div></div>
+        <div class="contact-line"><div class="icon-badge glow"><svg class="icon"><use href="#i-pin"/></svg></div><div><small>Nova sede</small><b>PE-095, 562 · Luiz Gonzaga</b><span>Caruaru-PE · ao lado do Buffet Renato Machado</span></div></div>
+        <div class="contact-line"><div class="icon-badge glow"><svg class="icon"><use href="#i-monitor"/></svg></div><div><small>Sistema escolar</small><b>escola.cppem.com.br</b><span>Acompanhamento para alunos, pais e professores</span></div></div>
+      </div>
+      <div class="qr"><img src="assets/img/qr-whatsapp.svg" alt="QR Code para o WhatsApp do CPPEM"><span>Fale no WhatsApp</span></div>
+    </div>
+    <div class="mascots">
+      <figure><img src="assets/img/mascote-leao.jpg" alt="Mascote leão do CPPEM"><figcaption>Leão</figcaption></figure>
+      <figure><img src="assets/img/mascote-leoa.jpg" alt="Mascote leoa do CPPEM"><figcaption>Leoa</figcaption></figure>
+      <figure><img src="assets/img/mascote-carcara.jpg" alt="Mascote carcará do CPPEM"><figcaption>Carcará</figcaption></figure>
+      <figure><img src="assets/img/mascote-lobomax.jpg" alt="Mascote lobo do CPPEM"><figcaption>Lobo</figcaption></figure>
+    </div>
+    <div class="notices">
+      <ul>
+        <li>Mensalidades e bolsas conforme campanha de matrículas 2027. Bolsas sujeitas à análise, critérios institucionais e disponibilidade de vagas.</li>
+        <li>O percentual da Bolsa Atleta é definido pela comissão avaliadora. Valores de farda por peça; itens sem preço informado são sob consulta.</li>
+        <li>Pré-projeto da nova sede apresentado por imagem ilustrativa. Livros IRIUM em representação ilustrativa; telas da plataforma IRIUM e do sistema escolar são prints reais.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
