@@ -80,58 +80,15 @@
   .pillar p { color: var(--muted); font-size: 15px; line-height: 1.55; margin-bottom: 16px; }
   .pillar .check-list li { font-size: 14px; }
 
-  /* galeria */
-  .gallery { display: grid; grid-template-columns: 1.4fr 1fr 1fr; grid-template-rows: 260px 260px; gap: 14px; }
-  .gallery figure { border-radius: 22px; overflow: hidden; position: relative; }
-  .gallery figure:first-child { grid-row: span 2; }
-  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
-  .gallery figure:hover img { transform: scale(1.05); }
-  .gallery figcaption { position: absolute; inset: auto 0 0; padding: 40px 18px 14px; background: linear-gradient(transparent, rgba(5, 15, 44, .9)); font-weight: 800; font-size: 14px; }
-  .values3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 18px; }
-  .values3 div { padding: 22px; border-radius: 18px; background: rgba(255, 255, 255, .06); border: 1px solid rgba(255, 255, 255, .1); }
-  .values3 .icon { font-size: 26px; color: var(--gold); }
-  .values3 b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 19px; margin: 10px 0 4px; }
-  .values3 p { color: #c4d0ea; font-size: 14px; line-height: 1.5; }
-
-  /* diferenciais */
-  .diffs { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  .diff { padding: 24px 20px; }
-  .diff b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 17px; margin: 16px 0 6px; }
-  .diff p { font-size: 14px; color: #c4d0ea; line-height: 1.5; }
-  .diff.wide { grid-column: span 4; display: flex; gap: 20px; align-items: center; background: var(--gradient-gold); color: var(--navy-950); border: 0; }
-  .diff.wide b { margin: 0 0 4px; font-size: 20px; }
-  .diff.wide p { color: #3a2a05; font-size: 15px; }
-  .diff.wide .icon-badge { background: var(--navy-950); border: 0; flex-shrink: 0; }
-
-  /* sede */
-  .campus { display: grid; grid-template-columns: 1.15fr .85fr; gap: 40px; align-items: center; }
-  .campus-img { position: relative; border-radius: 28px; overflow: hidden; box-shadow: var(--shadow-float); }
-  .campus-img img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
-  .campus-img .label { position: absolute; left: 16px; bottom: 16px; background: rgba(5, 15, 44, .85); color: var(--white); padding: 8px 14px; border-radius: 999px; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-  .campus-img .area { position: absolute; right: 16px; top: 16px; background: var(--navy-900); color: var(--white); border: 2px solid var(--gold); border-radius: 18px; padding: 12px 18px; text-align: center; }
-  .campus-img .area b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 30px; color: var(--gold); line-height: 1; }
-  .campus-img .area span { font-size: 10px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-  .amenities { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 24px 0; }
-  .amenity { display: flex; gap: 12px; align-items: center; padding: 14px; }
-  .amenity .icon-badge { width: 38px; height: 38px; font-size: 18px; border-radius: 12px; }
-  .amenity b { font-family: var(--font-display); font-weight: 800; color: var(--navy-900); font-size: 15px; }
-  .address-card { display: flex; gap: 14px; align-items: center; background: var(--navy-900); color: var(--white); border-radius: 20px; padding: 18px 20px; }
-  .address-card .icon { font-size: 30px; color: var(--gold); }
-  .address-card b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 17px; }
-  .address-card span { font-size: 13px; color: #c4d0ea; }
-  .address-card a { margin-left: auto; color: var(--gold); font-weight: 800; font-size: 13px; white-space: nowrap; }
-
-  /* ecossistema */
-  .eco { display: grid; grid-template-columns: repeat(5, 1fr); gap: 14px; position: relative; }
-  .eco-step { padding: 22px 18px; border-radius: 20px; background: rgba(255, 255, 255, .05); border: 1px solid rgba(255, 255, 255, .1); position: relative; }
-  .eco-step:not(:last-child)::after { content: ""; position: absolute; right: -12px; top: 44px; width: 10px; height: 10px; border-top: 2px solid var(--gold); border-right: 2px solid var(--gold); transform: rotate(45deg); }
-  .eco-step small { display: block; font-size: 10px; letter-spacing: .18em; font-weight: 800; color: var(--gold); text-transform: uppercase; margin-top: 16px; }
-  .eco-step b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 18px; margin: 4px 0 6px; }
-  .eco-step p { font-size: 13.5px; color: #c4d0ea; line-height: 1.5; }
-  .eco-step.family { background: var(--gradient-gold); color: var(--navy-950); border: 0; }
-  .eco-step.family small { color: var(--navy-800); }
-  .eco-step.family p { color: #3a2a05; }
-  .eco-step.family .icon-badge { background: var(--navy-950); }
+  /* quem somos */
+  .campus-link { margin-top: 26px; display: grid; grid-template-columns: 260px 1fr auto; align-items: center; gap: 24px; background: var(--navy-900); color: var(--white); border-radius: var(--radius-lg); overflow: hidden; border: 2px solid var(--gold); padding-right: 24px; transition: transform .2s; }
+  .campus-link:hover { transform: translateY(-3px); }
+  .campus-link img { width: 100%; height: 130px; object-fit: cover; }
+  .campus-link small { display: block; font-size: 11px; letter-spacing: .18em; font-weight: 800; color: var(--gold); text-transform: uppercase; }
+  .campus-link b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 20px; margin: 4px 0; }
+  .campus-link span { font-size: 14px; color: #c4d0ea; }
+  .campus-link .btn { color: var(--navy-950); font-size: 14px; padding: 12px 18px; white-space: nowrap; }
+  .values-download { text-align: center; margin-top: 28px; }
 
   /* IRIUM */
   .irium { display: grid; grid-template-columns: .8fr 1.2fr; gap: 40px; align-items: start; }
@@ -169,11 +126,6 @@
   .feature .icon { font-size: 22px; color: var(--gold); }
   .feature b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 15px; margin: 8px 0 2px; }
   .feature p { font-size: 13px; color: #c4d0ea; line-height: 1.4; }
-  .audiences { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 110px; }
-  .audience { padding: 22px; }
-  .audience b { display: block; font-family: var(--font-display); font-weight: 900; font-size: 19px; margin: 12px 0 8px; }
-  .audience li { font-size: 14px; color: #c4d0ea; margin-left: 18px; line-height: 1.6; }
-  .audience li::marker { color: var(--gold); }
 
   /* simulador */
   .sim { display: grid; grid-template-columns: .9fr 1.1fr; gap: 30px; align-items: stretch; }
@@ -277,14 +229,10 @@
 
   /* responsivo */
   @media (max-width: 1020px) {
-    .pillars, .diffs { grid-template-columns: 1fr 1fr; }
-    .diff.wide { grid-column: span 2; }
-    .eco { grid-template-columns: 1fr; }
-    .eco-step:not(:last-child)::after { right: auto; left: 40px; top: auto; bottom: -11px; transform: rotate(135deg); }
-    .irium, .system, .campus, .sim, .athlete, .uniform, .final-grid, .books-row, .hero-grid, .athlete-apply { grid-template-columns: 1fr; }
+    .pillars { grid-template-columns: 1fr 1fr; }
+    .irium, .system, .sim, .athlete, .uniform, .final-grid, .books-row, .hero-grid, .athlete-apply { grid-template-columns: 1fr; }
     .tier-cards { grid-template-columns: repeat(3, 1fr); }
     .system-shots .browser + .browser { position: static; width: 100%; margin-top: 14px; }
-    .audiences { margin-top: 30px; }
     .hero-card { display: none; }
     .uniform-photo { max-height: 420px; }
   }
@@ -293,25 +241,23 @@
     .nav-links { position: fixed; inset: 76px 0 auto; flex-direction: column; background: rgba(5, 15, 44, .97); padding: 24px; gap: 18px; transform: translateY(-120%); transition: transform .3s; }
     .nav-links.open { transform: none; }
     .menu-toggle { display: block; }
-    .hero-stats, .steps, .prices, .audiences, .values3 { grid-template-columns: 1fr 1fr; }
-    .pillars, .diffs { grid-template-columns: 1fr; }
-    .diff.wide { grid-column: auto; flex-direction: column; align-items: flex-start; }
-    .gallery { grid-template-columns: 1fr 1fr; grid-template-rows: 220px 160px 160px; }
-    .gallery figure:first-child { grid-column: span 2; grid-row: auto; }
+    .hero-stats, .steps, .prices { grid-template-columns: 1fr 1fr; }
+    .pillars { grid-template-columns: 1fr; }
     .uniform-list { grid-template-columns: 1fr; }
+    .campus-link { grid-template-columns: 1fr; padding: 0 0 20px; gap: 12px; }
+    .campus-link div, .campus-link .btn { margin: 0 20px; }
+    .campus-link .btn { white-space: normal; }
     .tier-cards { grid-template-columns: 1fr; }
     .apply-banner { flex-direction: column; align-items: flex-start; }
     .apply-banner .btn { margin-left: 0; }
-    .features, .amenities { grid-template-columns: 1fr 1fr; }
+    .features { grid-template-columns: 1fr 1fr; }
     .books-fan .book { width: 112px; height: 160px; padding: 12px 10px 12px 18px; }
     .books-fan .book .brand { font-size: 16px; }
     .books-fan .book .seg { font-size: 11px; }
-    .address-card { flex-wrap: wrap; }
-    .address-card a { margin-left: 44px; }
   }
   @media (max-width: 480px) {
-    .hero-stats, .steps, .prices, .audiences, .values3, .features, .amenities, .mascots { grid-template-columns: 1fr 1fr; }
-    .prices, .audiences, .values3 { grid-template-columns: 1fr; }
+    .hero-stats, .steps, .features, .mascots { grid-template-columns: 1fr 1fr; }
+    .prices { grid-template-columns: 1fr; }
     .seg-options { grid-template-columns: 1fr; }
     .apply-banner .btn { width: 100%; }
     .book-price { flex-direction: column; align-items: flex-start; }
@@ -329,16 +275,15 @@
     <a href="#topo" class="nav-brand"><span class="crest"><img src="assets/img/logo.jpg" alt=""></span><span><b>COLÉGIO CPPEM</b><small>Matrículas 2027</small></span></a>
     <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu" aria-expanded="false"><svg class="icon"><use href="#i-menu"/></svg></button>
     <div class="nav-links" id="navLinks">
-      <a href="#pilares">Pilares</a>
-      <a href="#sede">Nova sede</a>
-      <a href="#tecnologia">Tecnologia</a>
       <a href="#valores">Valores</a>
+      <a href="#material">Material</a>
+      <a href="#farda">Farda</a>
       <a href="#bolsa-atleta">Bolsa Atleta</a>
+      <a href="https://novasede.cppem.com.br" target="_blank" rel="noopener">Nova sede</a>
       <a class="btn btn-gold" data-whatsapp href="#"><svg class="icon"><use href="#i-chat"/></svg>Agendar visita</a>
     </div>
   </div>
 </nav>
-
 <!-- HERO -->
 <header class="hero" id="topo">
   <div class="hero-bg"></div><div class="hero-shade"></div>
@@ -348,10 +293,10 @@
       <div class="on-dark">
         <span class="pill light">Matrículas 2027 abertas</span>
         <h1 class="title">Formando líderes, <em>transformando vidas.</em></h1>
-        <p class="lead">Escola cristã, militarizada e preparatória em Caruaru-PE. Fé, disciplina, excelência acadêmica e tecnologia em uma nova sede — do 1º ano do Fundamental ao 3º ano do Ensino Médio.</p>
+        <p class="lead">Escola cristã, militarizada e preparatória em Caruaru-PE, do 1º ano do Fundamental ao 3º ano do Ensino Médio. Confira mensalidades, bolsas, material e farda para 2027.</p>
         <div class="hero-ctas">
-          <a class="btn btn-gold" data-whatsapp href="#"><svg class="icon"><use href="#i-chat"/></svg>Agendar uma visita</a>
-          <a class="btn btn-ghost" href="Guia-Matriculas-CPPEM-2027.pdf" download><svg class="icon"><use href="#i-download"/></svg>Baixar guia completo (PDF)</a>
+          <a class="btn btn-gold" href="#valores"><svg class="icon"><use href="#i-coins"/></svg>Ver valores 2027</a>
+          <a class="btn btn-ghost" data-whatsapp href="#"><svg class="icon"><use href="#i-chat"/></svg>Agendar uma visita</a>
         </div>
       </div>
       <aside class="hero-card">
@@ -364,202 +309,13 @@
       </aside>
     </div>
     <div class="hero-stats">
-      <div class="hero-stat"><b>4</b><span>pilares de formação</span></div>
-      <div class="hero-stat"><b>≈6.400 m²</b><span>na nova sede</span></div>
-      <div class="hero-stat"><b>12</b><span>salas de aula</span></div>
+      <div class="hero-stat"><b>até 40%</b><span>de bolsa na mensalidade</span></div>
       <div class="hero-stat"><b>até 80%</b><span>no Bolsa Atleta</span></div>
+      <div class="hero-stat"><b>R$ 778,20</b><span>Fund. I com bolsa de 40%</span></div>
+      <div class="hero-stat"><b>Salas</b><span>amplas e climatizadas</span></div>
     </div>
   </div>
 </header>
-
-<!-- PILARES -->
-<section class="sec" id="pilares">
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Nossa essência</p>
-      <h2 class="title">Quatro pilares. <em>Uma formação completa.</em></h2>
-      <p class="lead">Uma proposta que une direção espiritual, comportamento, visão profissional e autonomia para a vida.</p>
-    </div>
-    <div class="pillars">
-      <article class="card pillar reveal"><span class="big-no">01</span><div class="icon-badge"><svg class="icon"><use href="#i-cross"/></svg></div><h3>Fé Cristã</h3><p>Princípios bíblicos, caráter, propósito e respeito vivenciados no cotidiano escolar.</p><ul class="check-list"><li>Valores que orientam decisões</li><li>Caráter e propósito de vida</li><li>Respeito ao próximo</li></ul></article>
-      <article class="card pillar reveal"><span class="big-no">02</span><div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Disciplina</h3><p>Rotina, hierarquia, responsabilidade e constância para transformar objetivos em resultados.</p><ul class="check-list"><li>Rotina e postura militarizada</li><li>Respeito à hierarquia</li><li>Foco e pontualidade</li></ul></article>
-      <article class="card pillar reveal"><span class="big-no">03</span><div class="icon-badge"><svg class="icon"><use href="#i-landmark"/></svg></div><h3>Estabilidade</h3><p>Preparação acadêmica e para concursos desde a base, ampliando caminhos profissionais seguros.</p><ul class="check-list"><li>Base sólida desde o Fund. I</li><li>Visão de concursos</li><li>Simulados e revisão</li></ul></article>
-      <article class="card pillar reveal"><span class="big-no">04</span><div class="icon-badge"><svg class="icon"><use href="#i-trending"/></svg></div><h3>Liberdade</h3><p>Empreendedorismo e educação financeira para gerir recursos, criar valor e escolher caminhos.</p><ul class="check-list"><li>Educação financeira</li><li>Mentalidade empreendedora</li><li>Autonomia de escolha</li></ul></article>
-    </div>
-  </div>
-</section>
-
-<!-- DISCIPLINA NA PRÁTICA -->
-<section class="sec dark on-dark">
-  <div class="orb blue" style="width:600px;height:600px;right:-260px;top:-200px"></div>
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Disciplina na prática</p>
-      <h2 class="title">Postura, respeito e <em>senso de missão.</em></h2>
-      <p class="lead">A disciplina militarizada não é rigidez: é uma ferramenta de formação que ensina o aluno a se organizar, respeitar e assumir responsabilidades.</p>
-    </div>
-    <div class="gallery reveal">
-      <figure><img src="assets/img/bandeiras.jpg" alt="Alunos em formação com bandeiras" loading="lazy"><figcaption>Formação e cerimônias cívicas</figcaption></figure>
-      <figure><img src="assets/img/continencia.jpg" alt="Alunos prestando continência" loading="lazy"><figcaption>Hierarquia e respeito</figcaption></figure>
-      <figure><img src="assets/img/sala-aula.jpg" alt="Alunos em sala de aula" loading="lazy"><figcaption>Excelência acadêmica</figcaption></figure>
-      <figure><img src="assets/img/turma-campo.jpg" alt="Turma reunida ao ar livre" loading="lazy"><figcaption>Senso de equipe</figcaption></figure>
-      <figure><img src="assets/img/bandeira-noite.jpg" alt="Cerimônia noturna com bandeira" loading="lazy"><figcaption>Civismo</figcaption></figure>
-    </div>
-    <div class="values3">
-      <div class="reveal"><svg class="icon"><use href="#i-calendar"/></svg><b>Rotina</b><p>Hábitos diários que constroem constância e autonomia nos estudos.</p></div>
-      <div class="reveal"><svg class="icon"><use href="#i-users"/></svg><b>Respeito</b><p>Hierarquia, cortesia e convivência saudável entre alunos e educadores.</p></div>
-      <div class="reveal"><svg class="icon"><use href="#i-target"/></svg><b>Responsabilidade</b><p>Compromisso com metas, horários e com a própria evolução.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- DIFERENCIAIS -->
-<section class="sec dark on-dark" style="background:linear-gradient(180deg,#050f2c,#0a1f4d)">
-  <div class="orb gold" style="width:500px;height:500px;left:-240px;bottom:-100px"></div>
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Por que escolher o CPPEM</p>
-      <h2 class="title">Diferenciais que <em>se conectam.</em></h2>
-      <p class="lead">Não são benefícios isolados: é um ecossistema de formação, acompanhamento e preparação que trabalha junto todos os dias.</p>
-    </div>
-    <div class="diffs">
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-heart"/></svg></div><b>Formação cristã e de caráter</b><p>Valores que orientam decisões, relações e responsabilidades.</p></div>
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-shield"/></svg></div><b>Disciplina militarizada</b><p>Organização, hierarquia, postura, foco e compromisso.</p></div>
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-graduation"/></svg></div><b>Preparação desde a base</b><p>Visão de vestibulares, concursos e grandes objetivos.</p></div>
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-coins"/></svg></div><b>Educação financeira</b><p>Empreendedorismo e competências reais para criar valor.</p></div>
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-book"/></svg></div><b>Material IRIUM integrado</b><p>Livros, plataforma e questões em uma única jornada.</p></div>
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-monitor"/></svg></div><b>Tecnologia na aprendizagem</b><p>Pré-aulas, videoaulas e questões antes e depois da aula.</p></div>
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-chart"/></svg></div><b>Sistema escolar próprio</b><p>Médias, frequência e ocorrências em tempo real.</p></div>
-      <div class="card-dark diff reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-trophy"/></svg></div><b>Esporte valorizado</b><p>Programa Bolsa Atleta com até 80% de bolsa.</p></div>
-      <div class="card diff wide reveal"><div class="icon-badge"><svg class="icon"><use href="#i-building"/></svg></div><div><b>Nova sede · ≈6.400 m² na Zona Norte de Caruaru</b><p>12 salas, quadras, biblioteca, sala de informática, estacionamento e área verde — planejada para acolher e sustentar o crescimento da nossa comunidade escolar.</p></div></div>
-    </div>
-  </div>
-</section>
-
-<!-- NOVA SEDE -->
-<section class="sec white" id="sede">
-  <div class="wrap campus">
-    <div class="campus-img reveal">
-      <img src="assets/img/planta-aerea.jpg" alt="Pré-projeto da nova sede do CPPEM em vista aérea" loading="lazy">
-      <span class="label">Pré-projeto · imagem ilustrativa</span>
-      <div class="area"><b>≈ 6.400 m²</b><span>de área planejada</span></div>
-    </div>
-    <div class="reveal">
-      <p class="eyebrow">Uma estrutura para avançar</p>
-      <h2 class="title" style="font-size:clamp(32px,4.5vw,46px);margin:10px 0 12px">Uma nova sede. <em>O mesmo propósito.</em></h2>
-      <p class="lead">Espaços pensados para estudar, praticar esportes, ler, conviver e crescer — com segurança e conforto.</p>
-      <div class="amenities">
-        <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-door"/></svg></div><b>12 salas de aula</b></div>
-        <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-ball"/></svg></div><b>Quadras esportivas</b></div>
-        <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-book"/></svg></div><b>Biblioteca</b></div>
-        <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-computer"/></svg></div><b>Sala de informática</b></div>
-        <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-car"/></svg></div><b>Estacionamento</b></div>
-        <div class="card amenity"><div class="icon-badge"><svg class="icon"><use href="#i-tree"/></svg></div><b>Área verde</b></div>
-      </div>
-      <div class="address-card"><svg class="icon"><use href="#i-pin"/></svg><div><b>Rodovia PE-095, 562 · Luiz Gonzaga</b><span>Caruaru-PE · ao lado do Buffet Renato Machado, próximo ao Fórum</span></div><a href="https://www.google.com/maps/search/?api=1&query=Rodovia+PE-095%2C+562+Luiz+Gonzaga+Caruaru+PE" target="_blank" rel="noopener">Ver no mapa →</a></div>
-    </div>
-  </div>
-</section>
-
-<!-- TECNOLOGIA -->
-<section class="sec dark on-dark" id="tecnologia">
-  <div class="orb blue" style="width:640px;height:640px;left:-280px;top:100px"></div>
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">Tecnologia com propósito</p>
-      <h2 class="title">A tecnologia <em>a favor do aprendizado.</em></h2>
-      <p class="lead">Livro, plataforma, sala de aula e acompanhamento escolar conectados em uma única jornada — e a família enxergando tudo.</p>
-    </div>
-    <div class="eco">
-      <div class="eco-step reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-book"/></svg></div><small>1 · Material</small><b>Livros IRIUM</b><p>Conteúdo impresso por segmento, com teoria, exercícios e revisão.</p></div>
-      <div class="eco-step reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-play"/></svg></div><small>2 · Digital</small><b>Plataforma IRIUM</b><p>Pré-aula, videoaulas e questões para fixar o conteúdo.</p></div>
-      <div class="eco-step reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-users"/></svg></div><small>3 · Presencial</small><b>Sala de aula</b><p>Professores aprofundam e acompanham cada aluno de perto.</p></div>
-      <div class="eco-step reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-chart"/></svg></div><small>4 · Acompanhamento</small><b>escola.cppem.com.br</b><p>Médias, frequência, ocorrências e tarefas registradas.</p></div>
-      <div class="eco-step family reveal"><div class="icon-badge"><svg class="icon"><use href="#i-home"/></svg></div><small>Resultado</small><b>Família presente</b><p>Pais acompanham a vida escolar em tempo real.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- IRIUM -->
-<section class="sec">
-  <div class="wrap">
-    <div class="irium">
-      <div class="reveal">
-        <p class="eyebrow">Plataforma IRIUM</p>
-        <h2 class="title" style="font-size:clamp(32px,4.5vw,46px);margin:10px 0 12px">Aprender antes, durante <em>e depois da aula.</em></h2>
-        <p class="lead">Cada aula tem uma trilha: o aluno se prepara, assiste e pratica. Assim o tempo em sala rende muito mais.</p>
-        <div class="tabs" role="tablist" aria-label="Telas da plataforma IRIUM">
-          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-trilha" id="tab-trilha"><span class="icon-badge" style="background:#f28a1e;color:#fff"><svg class="icon"><use href="#i-file"/></svg></span><span><b>Pré-aula e aula</b><span>Material com prazo e videoaula integrada na mesma trilha.</span></span></button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-aulas" id="tab-aulas" tabindex="-1"><span class="icon-badge" style="background:#7b1fa2;color:#fff"><svg class="icon"><use href="#i-play"/></svg></span><span><b>Aulas por módulo</b><span>Sequência organizada de aulas em cada disciplina.</span></span></button>
-          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-disciplinas" id="tab-disciplinas" tabindex="-1"><span class="icon-badge" style="background:var(--blue-500);color:#fff"><svg class="icon"><use href="#i-layers"/></svg></span><span><b>Disciplinas e trilhas</b><span>Matérias regulares, Competências &amp; Habilidades e Clube do Livro.</span></span></button>
-        </div>
-      </div>
-      <div class="reveal">
-        <div class="tab-panel" role="tabpanel" id="panel-trilha" aria-labelledby="tab-trilha"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Trilha da aula</span></div><img src="assets/prints/irium-preaula.jpg" alt="Print real da plataforma IRIUM: pré-aula e videoaula de Matemática" loading="lazy"></div></div>
-        <div class="tab-panel" role="tabpanel" id="panel-aulas" aria-labelledby="tab-aulas" hidden><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Geografia</span></div><img src="assets/prints/irium-aulas.jpg" alt="Print real da plataforma IRIUM: aulas de Geografia" loading="lazy"></div></div>
-        <div class="tab-panel" role="tabpanel" id="panel-disciplinas" aria-labelledby="tab-disciplinas" hidden><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Disciplinas</span></div><img src="assets/prints/irium-disciplinas.jpg" alt="Print real da plataforma IRIUM: lista de disciplinas" loading="lazy"></div></div>
-        <p class="fine-print" style="margin-top:10px">Prints reais da plataforma IRIUM.</p>
-      </div>
-    </div>
-
-    <div class="books-row">
-      <div class="books-stage reveal">
-        <div class="orb blue"></div>
-        <div class="books-fan">
-          <div class="book f1"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Fundamental I</span><span class="vol">Anos iniciais</span></div>
-          <div class="book f2"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Fundamental II</span><span class="vol">Anos finais</span></div>
-          <div class="book em"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Médio</span><span class="vol">1ª à 3ª série</span></div>
-        </div>
-        <span class="illus">Representação ilustrativa</span>
-      </div>
-      <div class="reveal">
-        <p class="eyebrow">Material didático IRIUM</p>
-        <h2 class="title" style="font-size:clamp(30px,4vw,42px);margin:10px 0 12px">Do livro <em>à experiência digital.</em></h2>
-        <p class="lead">Livros por segmento integrados à plataforma, com pré-aulas, videoaulas e banco de questões.</p>
-        <div class="book-prices">
-          <div class="card book-price"><div><small>Fundamental I</small><p class="cash">R$ 1.397 <span style="font-size:13px;color:var(--muted)">à vista</span></p></div><p class="inst">ou 12x de<b>R$ 145,75</b></p></div>
-          <div class="card book-price"><div><small>Fundamental II</small><p class="cash">R$ 1.697 <span style="font-size:13px;color:var(--muted)">à vista</span></p></div><p class="inst">ou 12x de<b>R$ 177,05</b></p></div>
-          <div class="card book-price"><div><small>Ensino Médio</small><p class="cash">R$ 1.897 <span style="font-size:13px;color:var(--muted)">à vista</span></p></div><p class="inst">ou 12x de<b>R$ 197,00</b></p></div>
-        </div>
-        <p class="fine-print" style="margin-top:10px">Parcelamento no cartão de crédito.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SISTEMA ESCOLAR -->
-<section class="sec dark on-dark">
-  <div class="orb blue" style="width:600px;height:600px;right:-260px;top:300px"></div>
-  <div class="wrap">
-    <div class="sec-head reveal">
-      <p class="eyebrow">escola.cppem.com.br</p>
-      <h2 class="title">Nosso sistema escolar. <em>Feito em casa.</em></h2>
-      <p class="lead">Desenvolvido pela própria equipe do CPPEM: é onde alunos, pais e professores acompanham médias, frequência, ocorrências, tarefas e tiram dúvidas.</p>
-      <p style="margin-top:16px"><span class="made-here"><svg class="icon"><use href="#i-star"/></svg>Tecnologia própria CPPEM</span></p>
-    </div>
-    <div class="system">
-      <div class="system-shots reveal">
-        <div class="browser dark"><div class="browser-bar"><i></i><i></i><i></i><span>escola.cppem.com.br · Meu painel</span></div><img src="assets/prints/escola-painel.jpg" alt="Print real do painel do aluno no sistema escolar CPPEM" loading="lazy"></div>
-        <div class="browser dark"><div class="browser-bar"><i></i><i></i><i></i><span>Minha turma</span></div><img src="assets/prints/escola-turma.jpg" alt="Print real da página da turma no sistema escolar CPPEM" loading="lazy"></div>
-      </div>
-      <div class="features reveal">
-        <div class="feature"><svg class="icon"><use href="#i-chart"/></svg><b>Médias e boletim</b><p>Notas por disciplina, unidade e simulados.</p></div>
-        <div class="feature"><svg class="icon"><use href="#i-calendar"/></svg><b>Frequência</b><p>Presença consolidada e atualizada.</p></div>
-        <div class="feature"><svg class="icon"><use href="#i-shield-alert"/></svg><b>Ocorrências</b><p>Registros com transparência.</p></div>
-        <div class="feature"><svg class="icon"><use href="#i-clipboard"/></svg><b>Tarefas</b><p>Publicadas pelos professores.</p></div>
-        <div class="feature"><svg class="icon"><use href="#i-question"/></svg><b>Dúvidas</b><p>Canal direto com a escola.</p></div>
-        <div class="feature"><svg class="icon"><use href="#i-star"/></svg><b>Resultados</b><p>Desempenho para consulta.</p></div>
-        <div class="feature"><svg class="icon"><use href="#i-vote"/></svg><b>Votações</b><p>Participação nas decisões da turma.</p></div>
-        <div class="feature"><svg class="icon"><use href="#i-bell"/></svg><b>Eventos</b><p>Movimentações recentes da turma.</p></div>
-      </div>
-    </div>
-    <div class="audiences">
-      <div class="card-dark audience reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-graduation"/></svg></div><b>Alunos</b><ul><li>Notas e médias por unidade</li><li>Frequência e tarefas</li><li>Resultados e votações</li></ul></div>
-      <div class="card-dark audience reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-home"/></svg></div><b>Pais e responsáveis</b><ul><li>Boletim em tempo real</li><li>Ocorrências registradas</li><li>Canal para dúvidas</li></ul></div>
-      <div class="card-dark audience reveal"><div class="icon-badge glow"><svg class="icon"><use href="#i-briefcase"/></svg></div><b>Professores</b><ul><li>Lançamento de notas</li><li>Publicação de tarefas</li><li>Registro de eventos</li></ul></div>
-    </div>
-  </div>
-</section>
 
 <!-- VALORES / SIMULADOR -->
 <section class="sec" id="valores">
@@ -587,6 +343,64 @@
       </div>
     </div>
     <div class="prices" id="priceCards"></div>
+    <p class="values-download"><a class="btn btn-navy" href="Guia-Matriculas-CPPEM-2027.pdf" download><svg class="icon"><use href="#i-download"/></svg>Baixar guia com todos os valores (PDF)</a></p>
+  </div>
+</section>
+
+<!-- MATERIAL -->
+<section class="sec white" id="material">
+  <div class="wrap">
+    <div class="books-row" style="margin-top:0">
+      <div class="books-stage reveal">
+        <div class="orb blue"></div>
+        <div class="books-fan">
+          <div class="book f1"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Fundamental I</span><span class="vol">Anos iniciais</span></div>
+          <div class="book f2"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Fundamental II</span><span class="vol">Anos finais</span></div>
+          <div class="book em"><span class="brand">IRIUM</span><span class="kind">Material didático</span><span class="seg">Ensino<br>Médio</span><span class="vol">1ª à 3ª série</span></div>
+        </div>
+        <span class="illus">Representação ilustrativa</span>
+      </div>
+      <div class="reveal">
+        <p class="eyebrow">Material didático IRIUM</p>
+        <h2 class="title" style="font-size:clamp(30px,4vw,42px);margin:10px 0 12px">Do livro <em>à experiência digital.</em></h2>
+        <p class="lead">Livros por segmento integrados à plataforma, com pré-aulas, videoaulas e banco de questões.</p>
+        <div class="book-prices">
+          <div class="card book-price"><div><small>Fundamental I</small><p class="cash">R$ 1.397 <span style="font-size:13px;color:var(--muted)">à vista</span></p></div><p class="inst">ou 12x de<b>R$ 145,75</b></p></div>
+          <div class="card book-price"><div><small>Fundamental II</small><p class="cash">R$ 1.697 <span style="font-size:13px;color:var(--muted)">à vista</span></p></div><p class="inst">ou 12x de<b>R$ 177,05</b></p></div>
+          <div class="card book-price"><div><small>Ensino Médio</small><p class="cash">R$ 1.897 <span style="font-size:13px;color:var(--muted)">à vista</span></p></div><p class="inst">ou 12x de<b>R$ 197,00</b></p></div>
+        </div>
+        <p class="fine-print" style="margin-top:10px">Parcelamento no cartão de crédito.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FARDA -->
+<section class="sec" id="farda">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">Farda oficial</p>
+      <h2 class="title">Identidade, postura <em>e pertencimento.</em></h2>
+      <p class="lead">A farda representa os valores do CPPEM e faz parte da formação. Valores por peça — monte o kit conforme a necessidade do aluno.</p>
+    </div>
+    <div class="uniform">
+      <div class="uniform-photo reveal"><img src="assets/img/aluna-fund2.jpg" alt="Aluna do CPPEM com a farda oficial" loading="lazy"></div>
+      <div class="card uniform-list reveal">
+        <p class="uniform-group">Farda</p>
+        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa azul gandola</span><b>R$ 99,70</b></div>
+        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Calça azul</span><b>R$ 99,70</b></div>
+        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Saia</span><b>R$ 99,70</b></div>
+        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa branca UV</span><b>R$ 69,90</b></div>
+        <p class="uniform-group">Educação física</p>
+        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa de educação física</span><b>R$ 69,90</b></div>
+        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Short de educação física</span><b>R$ 74,90</b></div>
+        <p class="uniform-group">Acessórios</p>
+        <div class="u-item"><svg class="icon"><use href="#i-shield"/></svg><span>Cinto</span><b>R$ 35,00</b></div>
+        <div class="u-item"><svg class="icon"><use href="#i-file"/></svg><span>Tarjeta</span><b>R$ 35,00</b></div>
+        <div class="u-item"><svg class="icon"><use href="#i-briefcase"/></svg><span>Mochila</span><b>R$ 174,90</b></div>
+        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Casaco e calça de moletom</span><b class="ask">Sob consulta</b></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -645,30 +459,76 @@
   </div>
 </section>
 
-<!-- FARDA -->
-<section class="sec white">
+<!-- QUEM SOMOS -->
+<section class="sec white" id="quem-somos">
   <div class="wrap">
     <div class="sec-head reveal">
-      <p class="eyebrow">Farda oficial</p>
-      <h2 class="title">Identidade, postura <em>e pertencimento.</em></h2>
-      <p class="lead">A farda representa os valores do CPPEM e faz parte da formação. Valores por peça — monte o kit conforme a necessidade do aluno.</p>
+      <p class="eyebrow">Quem somos</p>
+      <h2 class="title">Quatro pilares. <em>Uma formação completa.</em></h2>
+      <p class="lead">Uma proposta que une direção espiritual, comportamento, visão profissional e autonomia para a vida.</p>
     </div>
-    <div class="uniform">
-      <div class="uniform-photo reveal"><img src="assets/img/aluna-fund2.jpg" alt="Aluna do CPPEM com a farda oficial" loading="lazy"></div>
-      <div class="card uniform-list reveal">
-        <p class="uniform-group">Farda</p>
-        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa azul gandola</span><b>R$ 99,70</b></div>
-        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Calça azul</span><b>R$ 99,70</b></div>
-        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Saia</span><b>R$ 99,70</b></div>
-        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa branca UV</span><b>R$ 69,90</b></div>
-        <p class="uniform-group">Educação física</p>
-        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Blusa de educação física</span><b>R$ 69,90</b></div>
-        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Short de educação física</span><b>R$ 74,90</b></div>
-        <p class="uniform-group">Acessórios</p>
-        <div class="u-item"><svg class="icon"><use href="#i-shield"/></svg><span>Cinto</span><b>R$ 35,00</b></div>
-        <div class="u-item"><svg class="icon"><use href="#i-file"/></svg><span>Tarjeta</span><b>R$ 35,00</b></div>
-        <div class="u-item"><svg class="icon"><use href="#i-briefcase"/></svg><span>Mochila</span><b>R$ 174,90</b></div>
-        <div class="u-item"><svg class="icon"><use href="#i-shirt"/></svg><span>Casaco e calça de moletom</span><b class="ask">Sob consulta</b></div>
+    <div class="pillars">
+      <article class="card pillar reveal"><span class="big-no">01</span><div class="icon-badge"><svg class="icon"><use href="#i-cross"/></svg></div><h3>Fé Cristã</h3><p>Princípios bíblicos, caráter, propósito e respeito vivenciados no cotidiano escolar.</p></article>
+      <article class="card pillar reveal"><span class="big-no">02</span><div class="icon-badge"><svg class="icon"><use href="#i-shield"/></svg></div><h3>Disciplina</h3><p>Rotina, hierarquia, responsabilidade e constância para transformar objetivos em resultados.</p></article>
+      <article class="card pillar reveal"><span class="big-no">03</span><div class="icon-badge"><svg class="icon"><use href="#i-landmark"/></svg></div><h3>Estabilidade</h3><p>Preparação acadêmica e para concursos desde a base, ampliando caminhos profissionais seguros.</p></article>
+      <article class="card pillar reveal"><span class="big-no">04</span><div class="icon-badge"><svg class="icon"><use href="#i-trending"/></svg></div><h3>Liberdade</h3><p>Empreendedorismo e educação financeira para gerir recursos, criar valor e escolher caminhos.</p></article>
+    </div>
+    <a class="campus-link reveal" href="https://novasede.cppem.com.br" target="_blank" rel="noopener">
+      <img src="assets/img/fachada.jpg" alt="Fachada da nova sede do Colégio CPPEM" loading="lazy">
+      <div><small>Nova sede · Zona Norte · PE-095, 562</small><b>Salas amplas e climatizadas, quadras e biblioteca.</b><span>Conheça a estrutura completa da nova sede</span></div>
+      <span class="btn btn-gold">novasede.cppem.com.br<svg class="icon"><use href="#i-arrow"/></svg></span>
+    </a>
+  </div>
+</section>
+
+<!-- TECNOLOGIA -->
+<section class="sec" id="tecnologia">
+  <div class="wrap">
+    <div class="irium">
+      <div class="reveal">
+        <p class="eyebrow">Plataforma IRIUM</p>
+        <h2 class="title" style="font-size:clamp(32px,4.5vw,46px);margin:10px 0 12px">Aprender antes, durante <em>e depois da aula.</em></h2>
+        <p class="lead">Cada aula tem uma trilha: o aluno se prepara, assiste e pratica. Assim o tempo em sala rende muito mais.</p>
+        <div class="tabs" role="tablist" aria-label="Telas da plataforma IRIUM">
+          <button class="tab" role="tab" aria-selected="true" aria-controls="panel-trilha" id="tab-trilha"><span class="icon-badge" style="background:#f28a1e;color:#fff"><svg class="icon"><use href="#i-file"/></svg></span><span><b>Pré-aula e aula</b><span>Material com prazo e videoaula integrada na mesma trilha.</span></span></button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-aulas" id="tab-aulas" tabindex="-1"><span class="icon-badge" style="background:#7b1fa2;color:#fff"><svg class="icon"><use href="#i-play"/></svg></span><span><b>Aulas por módulo</b><span>Sequência organizada de aulas em cada disciplina.</span></span></button>
+          <button class="tab" role="tab" aria-selected="false" aria-controls="panel-disciplinas" id="tab-disciplinas" tabindex="-1"><span class="icon-badge" style="background:var(--blue-500);color:#fff"><svg class="icon"><use href="#i-layers"/></svg></span><span><b>Disciplinas e trilhas</b><span>Matérias regulares, Competências &amp; Habilidades e Clube do Livro.</span></span></button>
+        </div>
+      </div>
+      <div class="reveal">
+        <div class="tab-panel" role="tabpanel" id="panel-trilha" aria-labelledby="tab-trilha"><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Trilha da aula</span></div><img src="assets/prints/irium-preaula.jpg" alt="Print real da plataforma IRIUM: pré-aula e videoaula de Matemática" loading="lazy"></div></div>
+        <div class="tab-panel" role="tabpanel" id="panel-aulas" aria-labelledby="tab-aulas" hidden><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Geografia</span></div><img src="assets/prints/irium-aulas.jpg" alt="Print real da plataforma IRIUM: aulas de Geografia" loading="lazy"></div></div>
+        <div class="tab-panel" role="tabpanel" id="panel-disciplinas" aria-labelledby="tab-disciplinas" hidden><div class="browser"><div class="browser-bar"><i></i><i></i><i></i><span>Plataforma IRIUM · Disciplinas</span></div><img src="assets/prints/irium-disciplinas.jpg" alt="Print real da plataforma IRIUM: lista de disciplinas" loading="lazy"></div></div>
+        <p class="fine-print" style="margin-top:10px">Prints reais da plataforma IRIUM.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SISTEMA ESCOLAR -->
+<section class="sec dark on-dark">
+  <div class="orb blue" style="width:600px;height:600px;right:-260px;top:300px"></div>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <p class="eyebrow">escola.cppem.com.br</p>
+      <h2 class="title">Nosso sistema escolar. <em>Feito em casa.</em></h2>
+      <p class="lead">Desenvolvido pela própria equipe do CPPEM: é onde alunos, pais e professores acompanham médias, frequência, ocorrências, tarefas e tiram dúvidas.</p>
+      <p style="margin-top:16px"><span class="made-here"><svg class="icon"><use href="#i-star"/></svg>Tecnologia própria CPPEM</span></p>
+    </div>
+    <div class="system">
+      <div class="system-shots reveal">
+        <div class="browser dark"><div class="browser-bar"><i></i><i></i><i></i><span>escola.cppem.com.br · Meu painel</span></div><img src="assets/prints/escola-painel.jpg" alt="Print real do painel do aluno no sistema escolar CPPEM" loading="lazy"></div>
+        <div class="browser dark"><div class="browser-bar"><i></i><i></i><i></i><span>Minha turma</span></div><img src="assets/prints/escola-turma.jpg" alt="Print real da página da turma no sistema escolar CPPEM" loading="lazy"></div>
+      </div>
+      <div class="features reveal">
+        <div class="feature"><svg class="icon"><use href="#i-chart"/></svg><b>Médias e boletim</b><p>Notas por disciplina, unidade e simulados.</p></div>
+        <div class="feature"><svg class="icon"><use href="#i-calendar"/></svg><b>Frequência</b><p>Presença consolidada e atualizada.</p></div>
+        <div class="feature"><svg class="icon"><use href="#i-shield-alert"/></svg><b>Ocorrências</b><p>Registros com transparência.</p></div>
+        <div class="feature"><svg class="icon"><use href="#i-clipboard"/></svg><b>Tarefas</b><p>Publicadas pelos professores.</p></div>
+        <div class="feature"><svg class="icon"><use href="#i-question"/></svg><b>Dúvidas</b><p>Canal direto com a escola.</p></div>
+        <div class="feature"><svg class="icon"><use href="#i-star"/></svg><b>Resultados</b><p>Desempenho para consulta.</p></div>
+        <div class="feature"><svg class="icon"><use href="#i-vote"/></svg><b>Votações</b><p>Participação nas decisões da turma.</p></div>
+        <div class="feature"><svg class="icon"><use href="#i-bell"/></svg><b>Eventos</b><p>Movimentações recentes da turma.</p></div>
       </div>
     </div>
   </div>
